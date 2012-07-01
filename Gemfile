@@ -9,3 +9,7 @@ group :assets do
   gem "jquery-rails"
   gem "therubyracer"
 end
+
+group :development, :test do
+  gem "rspec-rails"
+end
