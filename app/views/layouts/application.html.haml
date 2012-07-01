@@ -1,0 +1,22 @@
+!!!
+%html
+  %head
+    %title= t("weblog.title")
+    = stylesheet_link_tag "application"
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+
+  %body{:class => params[:controller].parameterize}
+    #site-container
+      %a{name: :top}
+      #site-wrapper
+        = render "shared/header"
+        = render "shared/navigation"
+        = render "shared/features"
+        = render "shared/descriptive_navigation"
+
+        #content
+          = yield
+
+        = render "shared/carousel"
+        = render "shared/footer"

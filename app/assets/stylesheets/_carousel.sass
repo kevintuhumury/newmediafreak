@@ -1,0 +1,78 @@
+#carousel
+  background-color: $dark-brown
+  overflow: hidden
+  padding-left: 5px
+  height: 180px
+
+  .items
+    overflow: hidden
+    width: 1080px
+    margin: 20px 5px 0
+
+    ul
+      width: 99999px
+
+      li
+        position: relative
+        display: inline-block
+        width: 150px
+        height: 104px
+        margin: 15px
+
+        .bg-image
+          +border-radius(10px)
+          position: absolute
+          right: 0
+          bottom: 0
+          left: 0
+          padding: 10px
+
+        .title
+          +border-bottom-right-radius(10px)
+          +border-bottom-left-radius(10px)
+          background: rgba(0, 0, 0, 0.5)
+          font-family: "Nobile"
+          font-weight: 400
+          font-size: 13px
+          position: absolute
+          right: 0
+          bottom: 0
+          left: 0
+          padding: 10px
+
+        a
+          display: block
+          position: absolute
+          top: 0
+          right: 0
+          bottom: 0
+          left: 0
+
+        .empty
+          +border-radius(10px)
+          background-color: $lighter-brown
+          position: absolute
+          top: 0
+          right: 0
+          bottom: 0
+          left: 0
+
+  .navigation
+
+    ul
+      li
+        display: inline-block
+        width: 10px
+        height: 10px
+
+        span
+          +border-radius(10px)
+          background-color: lighten($lighter-brown, 10%)
+          display: block
+          width: 10px
+          height: 10px
+          cursor: pointer
+
+        &.active
+          span
+            background-color: #fff

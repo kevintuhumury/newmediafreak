@@ -1,0 +1,7 @@
+nl:
+  shared:
+    footer:
+      to_top: "&uarr; Up, up and away &hellip;"
+      to_top_title: Naar boven
+    copyright:
+      description: 'Copyright 2002 - %{year}, Kevin Tuhumury. Alle rechten voorbehouden. Onderdeel van het <a href="http://www.thmry.nl" target="_blank">THMRY</a> netwerk.'
