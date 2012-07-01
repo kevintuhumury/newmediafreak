@@ -5,6 +5,8 @@ gem "mysql2"
 gem "haml"
 
 group :assets do
+  gem "sass-rails"
+  gem "compass-rails"
   gem "coffee-rails"
   gem "jquery-rails"
   gem "therubyracer"
