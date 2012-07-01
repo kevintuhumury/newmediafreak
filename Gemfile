@@ -3,6 +3,7 @@ source :rubygems
 gem "rails", "3.2.6"
 gem "mysql2"
 gem "haml"
+gem "exception_notification"
 
 group :assets do
   gem "sass-rails"
