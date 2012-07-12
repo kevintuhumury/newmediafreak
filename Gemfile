@@ -3,6 +3,7 @@ source :rubygems
 gem "rails", "3.2.6"
 gem "mysql2"
 gem "haml"
+gem "newrelic_rpm"
 gem "exception_notification"
 
 group :assets do
@@ -11,6 +12,7 @@ group :assets do
   gem "coffee-rails"
   gem "jquery-rails"
   gem "therubyracer"
+  gem "uglifier"
 end
 
 group :development, :test do
