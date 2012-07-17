@@ -1,5 +1,17 @@
 nl:
+  weblog:
+    title: New Media Freak - Weblog van Kevin Tuhumurysda
   shared:
+    navigation:
+      home:
+        name: Home
+        title: Home
+      photos:
+        name: Fotografie
+        title: Fotografie van Kevin Tuhumury
+    descriptive_navigation:
+      bar:
+        description: "Ben je op zoek naar iets? Misschien naar mijn <strong>artikelen</strong>, <strong>foto's</strong> of <strong>apps</strong>? Of ben je op zoek naar mijn social media, zoals <strong>twitter</strong>, <strong>flickr</strong>, <strong>facebook</strong> of <strong>github</strong>?"
     footer:
       to_top: "&uarr; Up, up and away &hellip;"
       to_top_title: Naar boven
