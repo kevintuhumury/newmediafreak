@@ -17,6 +17,7 @@ end
 
 group :development, :test do
   gem "rspec-rails"
+  gem "shoulda-matchers"
   gem "cucumber-rails"
   gem "database_cleaner"
   gem "launchy"
