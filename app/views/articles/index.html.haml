@@ -1,2 +1,5 @@
-%p
-  YIELDED CONTENT
+.articles
+  - @articles.each do |article|
+    .article
+      %h2= article.title
+      %p= article.content
