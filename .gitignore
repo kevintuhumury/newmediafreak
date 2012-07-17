@@ -4,13 +4,18 @@
 # or operating system, you probably want to add a global ignore instead:
 #   git config --global core.excludesfile ~/.gitignore_global
 
+.DS_Store
+.sass-cache
+
 /.bundle
-
-/db/*.sqlite3
-
-/coverage
-/config/database.yml
-/config/newrelic.yml
-
+/vendor/bundle
 /log/*.log
 /tmp
+/db/*.sqlite3
+/public/system/*
+/coverage
+/spec/tmp/*
+
+/config/database.yml
+/config/newrelic.yml
+/config/settings.yml
