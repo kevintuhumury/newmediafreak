@@ -19,5 +19,7 @@ group :development, :test do
   gem "rspec-rails"
   gem "cucumber-rails"
   gem "database_cleaner"
+  gem "launchy"
+  gem "fabrication"
   gem "simplecov"
 end
