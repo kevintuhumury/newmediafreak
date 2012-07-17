@@ -20,7 +20,7 @@ end
 
 Then "I should be pointed to the website sections or social media" do
   within "#descriptive-navigation" do
-    page.should have_selector "h3", text: "Ben je op zoek naar iets? Misschien naar mijn artikelen, foto's of apps? Of ben je op zoek naar mijn social media, zoals twitter, flickr, facebook of github?"
+    page.should have_selector "h3", text: "Ben je op zoek naar iets? Zoals mijn artikelen, foto's of apps? Of ben je op zoek naar mijn social media, zoals twitter, flickr, facebook of github?"
   end
 end
 
