@@ -1,0 +1,81 @@
+#single-article
+  .navigation
+    width: $article-width
+    height: 50px
+    margin: 10px
+    padding: 20px 0 0
+
+    ul
+      position: absolute
+      width: $article-width
+
+      li
+        display: inline-block
+        width: 340px
+        height: 25px
+
+        a
+          +transition-property(all)
+          +transition-duration(200ms)
+          position: absolute
+          display: block
+          width: 340px
+          height: 40px
+
+          .title
+            +title-font
+            position: absolute
+            overflow: hidden
+            opacity: 0
+            width: 400px
+            font-size: 14px
+            line-height: 38px
+
+          .button
+            +title-font
+            +border-radius(25px)
+            background: rgba(0, 0, 0, 0.25)
+            position: absolute
+            padding: 10px 16px
+
+        &:hover
+          .title
+            opacity: 1
+
+          .button
+            +background(linear-gradient($red, darken($red, 25%)))
+
+        &.prev
+          a
+            left: 0
+
+            .title
+              left: -400px
+
+            .button
+              left: 0
+
+        &.prev:hover
+          a
+            left: 20px
+
+            .title
+              left: 105px
+
+        &.next
+          a
+            right: 0
+
+            .title
+              right: -400px
+              text-align: right
+
+            .button
+              right: 0
+
+        &.next:hover
+          a
+            right: 20px
+
+            .title
+              right: 120px
