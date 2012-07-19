@@ -4,8 +4,8 @@
     .article
       .image{style: "background-image: url(#{image_path article.image})"}
 
-      .content= truncate strip_tags(article.content), length: 150
+      .content= truncate strip_tags(article.content), length: 120
 
       .title
         %h2= truncate strip_tags(article.title), length: 22
-        .read-more= t("articles.read_more")
+        .read-more= link_to t("articles.read_more"), article_path(article)
