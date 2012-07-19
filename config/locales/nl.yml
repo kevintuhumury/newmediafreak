@@ -14,7 +14,7 @@ nl:
         title: Fotografie van Kevin Tuhumury
     descriptive_navigation:
       bar:
-        description: "Ben je op zoek naar iets? Zoals mijn <strong>artikelen</strong>, <strong>foto's</strong> of <strong>apps</strong>? Of ben je op zoek naar mijn social media, zoals <strong>twitter</strong>, <strong>flickr</strong>, <strong>facebook</strong> of <strong>github</strong>?"
+        description: "Ben je op zoek naar iets? Zoals mijn <strong><a href='%{article_url}'>artikelen</a></strong>, <strong>foto's</strong> of <strong>apps</strong>? Of ben je op zoek naar mijn social media, zoals <strong><a href='%{twitter_url}' target='_blank'>twitter</a></strong>, <strong><a href='%{flickr_url}' target='_blank'>flickr</a></strong>, <strong><a href='%{facebook_url}' target='_blank'>facebook</a></strong> of <strong><a href='%{github_url}' target='_blank'>github</a></strong>?"
     footer:
       to_top: "&uarr; Up, up and away &hellip;"
       to_top_title: Naar boven
