@@ -2,7 +2,7 @@
   .article
     +border-radius(10px)
     background: rgba(0, 0, 0, 0.25)
-    width: 690px
+    width: $article-width
     margin: 10px
 
     .image
@@ -11,21 +11,18 @@
       +background-size(contain)
       background-position: center
       background-repeat: no-repeat
-      width: 690px
+      width: $article-width
       height: 260px
 
     .title
       +background(linear-gradient(darken($light-gray, 5%), darken($light-gray, 10%)))
-      width: 690px
+      width: $article-width
       height: 45px
 
       h2
-        font-family: "Nobile"
-        font-style: italic
+        +title-font
         font-size: 16px
         padding: 10px 20px
 
     .content
       padding: 20px
-
-    .navigation
