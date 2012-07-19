@@ -1,0 +1,10 @@
+- if article
+  .image{style: "background-image: url(#{image_path article.image})"}
+
+  .content= truncate strip_tags(article.content), length: 500
+
+  .title
+    %h2= truncate t("articles.new", title: article.title), length: 45
+
+  .info
+    .read-more= t("articles.read_more")

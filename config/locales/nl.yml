@@ -1,6 +1,9 @@
 nl:
   weblog:
-    title: New Media Freak - Weblog van Kevin Tuhumurysda
+    title: New Media Freak - Weblog van Kevin Tuhumury
+  articles:
+    new: "Nieuw: %{title}"
+    read_more: Lees verder
   shared:
     navigation:
       home:

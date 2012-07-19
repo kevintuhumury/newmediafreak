@@ -1,0 +1,11 @@
+- if articles
+  - articles.each do |article|
+
+    .article
+      .image{style: "background-image: url(#{image_path article.image})"}
+
+      .content= truncate strip_tags(article.content), length: 150
+
+      .title
+        %h2= truncate strip_tags(article.title), length: 22
+        .read-more= t("articles.read_more")
