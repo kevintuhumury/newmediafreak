@@ -7,5 +7,5 @@
       .content= truncate strip_tags(article.content), length: 120
 
       .title
-        %h2= truncate strip_tags(article.title), length: 22
+        %h2= article.title
         .read-more= link_to t("articles.read_more"), article_path(article)
