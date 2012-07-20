@@ -5,8 +5,8 @@ nl:
     new: "Nieuw: %{title}"
     read_more: Lees verder
     article_navigation:
-      prev: vorige artikel
-      upcoming: volgende artikel
+      prev: vorig artikel
+      upcoming: volgend artikel
   shared:
     navigation:
       home:

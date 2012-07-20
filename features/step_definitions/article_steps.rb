@@ -44,7 +44,7 @@ Then "I should see the full latest article" do
     end
 
     within ".navigation" do
-      page.should have_selector "ul li.prev a span.button", text: "vorige artikel"
+      page.should have_selector "ul li.prev a span.button", text: "vorig artikel"
       page.should have_selector "ul li.prev a span.title", text: "Next to last article"
 
       page.should have_no_selector "ul li.upcoming a span.button"
@@ -61,10 +61,10 @@ Then "I should see the full next-to-last article" do
     end
 
     within ".navigation" do
-      page.should have_selector "ul li.prev a span.button", text: "vorige artikel"
+      page.should have_selector "ul li.prev a span.button", text: "vorig artikel"
       page.should have_selector "ul li.prev a span.title", text: "Second article"
 
-      page.should have_selector "ul li.upcoming a span.button", text: "volgende artikel"
+      page.should have_selector "ul li.upcoming a span.button", text: "volgend artikel"
       page.should have_selector "ul li.upcoming a span.title", text: "Latest article"
     end
   end
@@ -103,7 +103,7 @@ Then "I should only be able to navigate forward" do
       page.should have_no_selector "ul li.prev a span.button"
       page.should have_no_selector "ul li.prev a span.title"
 
-      page.should have_selector "ul li.upcoming a span.button", text: "volgende artikel"
+      page.should have_selector "ul li.upcoming a span.button", text: "volgend artikel"
       page.should have_selector "ul li.upcoming a span.title", text: "Second article"
 
       find("ul li.upcoming a").click
