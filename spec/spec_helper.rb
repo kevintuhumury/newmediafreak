@@ -14,6 +14,20 @@ Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
 require 'shoulda-matchers'
 
 RSpec.configure do |config|
+
+  config.before(:suite) do
+    DatabaseCleaner.strategy = :transaction
+    DatabaseCleaner.clean_with(:truncation)
+  end
+
+  config.before(:each) do
+    DatabaseCleaner.start
+  end
+
+  config.after(:each) do
+    DatabaseCleaner.clean
+  end
+
   config.mock_with :rspec
   config.use_transactional_fixtures = true
 
