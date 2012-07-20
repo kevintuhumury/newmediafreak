@@ -25,6 +25,7 @@
 
           .title
             +title-font
+            +single-text-shadow(rgba(0, 0, 0, 1), 1px, 1px, 0px)
             position: absolute
             overflow: hidden
             opacity: 0
@@ -34,10 +35,12 @@
 
           .button
             +title-font
+            +single-text-shadow(rgba(0, 0, 0, 1), -1px, -1px, 0px)
             +border-radius(25px)
             background: rgba(0, 0, 0, 0.25)
             position: absolute
-            padding: 10px 16px
+            padding: 7px 16px 10px
+            line-height: 25px
 
         &:hover
           cursor: pointer
