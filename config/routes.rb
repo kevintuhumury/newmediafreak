@@ -1,6 +1,6 @@
 Newmediafreak::Application.routes.draw do
 
-  resources :articles
+  resources :articles, only: [:index, :show], path: "artikel"
 
   root :to => 'articles#index'
 
