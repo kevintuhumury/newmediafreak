@@ -3,6 +3,7 @@ source :rubygems
 gem "rails", "3.2.6"
 gem "mysql2"
 gem "haml"
+gem "friendly_id"
 gem "newrelic_rpm"
 gem "exception_notification"
 

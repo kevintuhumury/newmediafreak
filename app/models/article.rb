@@ -1,4 +1,9 @@
 class Article < ActiveRecord::Base
+
+  extend FriendlyId
+
+  friendly_id :title, use: :slugged
+
   attr_accessible :title, :content, :image
   validates_presence_of :title, :content, :image
 
@@ -16,6 +21,10 @@ class Article < ActiveRecord::Base
 
   def has_upcoming?
     !upcoming.blank?
+  end
+
+  def should_generate_new_friendly_id?
+    new_record?
   end
 
   private
