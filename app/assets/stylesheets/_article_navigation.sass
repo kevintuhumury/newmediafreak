@@ -19,6 +19,7 @@
           +transition-duration(200ms)
           position: absolute
           display: block
+          overflow: hidden
           width: 340px
           height: 40px
 
@@ -39,6 +40,8 @@
             padding: 10px 16px
 
         &:hover
+          cursor: pointer
+
           .title
             opacity: 1
 
@@ -60,9 +63,9 @@
             left: 20px
 
             .title
-              left: 105px
+              left: 110px
 
-        &.next
+        &.upcoming
           a
             right: 0
 
@@ -73,9 +76,9 @@
             .button
               right: 0
 
-        &.next:hover
+        &.upcoming:hover
           a
             right: 20px
 
             .title
-              right: 120px
+              right: 130px

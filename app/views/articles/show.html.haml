@@ -5,4 +5,5 @@
       %h2= @article.title
     .content
       = @article.content
-    .navigation
+  .navigation
+    = render "article_navigation", article: @article

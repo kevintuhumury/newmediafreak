@@ -4,6 +4,9 @@ nl:
   articles:
     new: "Nieuw: %{title}"
     read_more: Lees verder
+    article_navigation:
+      prev: vorige artikel
+      upcoming: volgende artikel
   shared:
     navigation:
       home:
