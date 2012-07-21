@@ -12,6 +12,8 @@ nl:
       title: Uhoh...
       error: '"404: File not found"'
       message: oftewel de pagina waar je naar op zoek bent bestaat niet. Het lijkt erop dat je verdwaald bent in een galaxy far, far away...
+      back: ...dus ga terug naar de Melkweg. Err,
+      website_name: New Media Freak
   shared:
     navigation:
       home:
