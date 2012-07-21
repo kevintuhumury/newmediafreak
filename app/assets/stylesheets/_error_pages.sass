@@ -1,0 +1,62 @@
+@-webkit-keyframes astronaut
+  0%, 100%
+    +simple-transform(1, -10deg, 0, 0)
+  25%
+    +simple-transform(1, -5deg, 20px, 40px)
+  50%
+    +simple-transform(1, 0deg, 10px, 10px)
+  75%
+    +simple-transform(1, -5deg, -15px, 30px)
+
+@-webkit-keyframes death-star
+  0%, 100%
+    +rotate(0deg)
+  50%
+    +rotate(-5deg)
+
+.error
+  +single-text-shadow(#000, 3px, 3px, 0)
+  background: image-url("stars.png") repeat
+  font-family: "Signika"
+  line-height: 1
+
+  #not_found
+    width: 100vw
+    height: 100vh
+
+    #death-star
+      +animate(death-star, 4s, 0s, infinite)
+      background: image-url("death-star.png") top right no-repeat
+      position: absolute
+      top: 50px
+      right: 300px
+      width: 230px
+      height: 230px
+
+    #astronaut
+      +animate(astronaut, 5s, 0s, infinite)
+      background: image-url("astronaut.png") no-repeat
+      position: absolute
+      top: 300px
+      left: 250px
+      width: 215px
+      height: 350px
+
+    #message
+      width: 600px
+      margin: 200px auto 0
+
+      h1
+        font-family: "Crete Round"
+        font-size: 140px
+        font-weight: bold
+
+      p
+        padding: 10px 20px
+        font-size: 30px
+        line-height: 35px
+        width: 530px
+
+        span
+          background-color: $red
+          padding: 2px 10px

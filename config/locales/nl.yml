@@ -7,6 +7,11 @@ nl:
     article_navigation:
       prev: vorig artikel
       upcoming: volgend artikel
+  errors:
+    "404":
+      title: Uhoh...
+      error: '"404: File not found"'
+      message: oftewel de pagina waar je naar op zoek bent bestaat niet. Het lijkt erop dat je verdwaald bent in een galaxy far, far away...
   shared:
     navigation:
       home:

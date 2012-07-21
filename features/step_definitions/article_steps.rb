@@ -1,3 +1,7 @@
+Given "there is an article" do
+  @article = Fabricate :article, id: 100, title: "An article", created_at: 7.days.ago
+end
+
 Given "there are articles" do
   @article_first        = Fabricate :article, id: 1, title: "First article", created_at: 4.days.ago, content: "Content for the first article."
   @article_second       = Fabricate :article, id: 2, title: "Second article", created_at: 3.days.ago, content: "Content for the second article."
@@ -7,6 +11,10 @@ end
 
 When "I visit the homepage" do
   visit root_path
+end
+
+When "I visit that article" do
+  visit article_path(@article)
 end
 
 Then "I should see the latest articles" do
