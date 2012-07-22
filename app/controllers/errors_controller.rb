@@ -1,7 +1,13 @@
 class ErrorsController < ApplicationController
 
-  def not_found
-    render action: 404, layout: "error", status: 404
+  def render_error
+    render action: "error", layout: "error", locals: { error: code }, status: code
+  end
+
+  private
+
+  def code
+    request.fullpath.split("/").last.to_i
   end
 
 end
