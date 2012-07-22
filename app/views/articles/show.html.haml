@@ -4,6 +4,6 @@
     .title
       %h2= @article.title
     .content
-      = @article.content
+      = raw @article.content
   .navigation
     = render "article_navigation", article: @article
