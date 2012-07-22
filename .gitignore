@@ -19,3 +19,5 @@
 /config/database.yml
 /config/newrelic.yml
 /config/settings.yml
+
+/app/assets/images/articles
