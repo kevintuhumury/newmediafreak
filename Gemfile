@@ -5,7 +5,6 @@ gem "mysql2"
 gem "haml"
 gem "friendly_id"
 gem "newrelic_rpm"
-gem "exception_notification"
 
 group :assets do
   gem "sass-rails"
