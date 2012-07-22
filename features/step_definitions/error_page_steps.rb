@@ -16,7 +16,7 @@ end
 Then "I should see a custom 404 error page" do
   within ".error #not_found #message" do
     page.should have_selector "h1", text: "Uhoh..."
-    page.should have_content '"404: File not found" oftewel de pagina waar je naar op zoek bent bestaat niet. Het lijkt erop dat je verdwaald bent in een galaxy far, far away...'
+    page.should have_content '"404: File Not Found" oftewel de pagina waar je naar op zoek bent bestaat niet. Het lijkt erop dat je verdwaald bent in een galaxy far, far away...'
     page.should have_content "...dus ga terug naar de Melkweg. Err, New Media Freak"
   end
 end
