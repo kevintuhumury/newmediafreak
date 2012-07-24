@@ -7,12 +7,16 @@ class Article < ActiveRecord::Base
   attr_accessible :title, :content, :image
   validates_presence_of :title, :content, :image
 
+  def self.published
+    ordered.where(published: true)
+  end
+
   def previous
-    ordered.where("created_at < ?", created_at).first
+    self.class.published.where("created_at < ?", created_at).first
   end
 
   def upcoming
-    ordered.where("created_at > ?", created_at).last
+    self.class.published.where("created_at > ?", created_at).last
   end
 
   def has_previous?
@@ -23,13 +27,16 @@ class Article < ActiveRecord::Base
     !upcoming.blank?
   end
 
+  private
+
+  def self.ordered
+    order("created_at DESC")
+  end
+
+  protected
+
   def should_generate_new_friendly_id?
     new_record?
   end
 
-  private
-
-  def ordered
-    Article.order("created_at DESC")
-  end
 end

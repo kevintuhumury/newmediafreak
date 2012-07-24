@@ -30,3 +30,18 @@ Feature: Articles
   Scenario: Viewing an article from the carousel
     Then I should see the latest articles
     And I should see the other articles in the carousel
+
+  @allow-rescue
+  Scenario: Don't show an unpublished article
+    When there is an unpublished article
+    And I visit the unpublished article
+    Then I should see a 404 error page
+
+  Scenario: Don't include unpublished articles when navigation between them
+    When there is an unpublished article
+    And I visit the homepage
+    Then I should not see the unpublished article on the homepage
+
+    When the unpublished article is published
+    And I refresh the page
+    Then I should see the previously unpublished article on the homepage

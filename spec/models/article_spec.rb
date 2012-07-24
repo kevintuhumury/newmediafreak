@@ -8,8 +8,11 @@ describe Article do
 
   context "when there is only a single article" do
 
+    subject { Fabricate :article, created_at: 1.day.ago.to_datetime }
+
     before do
-      subject { Fabricate :article, created_at: Date.today }
+      @unpublished_before = Fabricate :article, created_at: 4.days.ago.to_datetime, published: false
+      @unpublished_after  = Fabricate :article, created_at: Date.today.to_datetime, published: false
     end
 
     it "there is no previous article" do
@@ -25,8 +28,9 @@ describe Article do
   context "when there are two articles" do
 
     before do
-      @first_article  = Fabricate :article, title: "First", created_at: 1.day.ago
-      @second_article = Fabricate :article, title: "Second", created_at: Date.today
+      @first_article  = Fabricate :article, created_at: 2.days.ago
+      @unpublished    = Fabricate :article, created_at: 1.day.ago, published: false
+      @second_article = Fabricate :article, created_at: Date.today
     end
 
     context "when the first article is selected" do
@@ -63,7 +67,8 @@ describe Article do
     before do
       @first_article  = Fabricate :article, created_at: 3.days.ago
       @second_article = Fabricate :article, created_at: 2.days.ago
-      @third_article  = Fabricate :article, created_at: 1.day.ago
+      @unpublished    = Fabricate :article, created_at: 1.day.ago, published: false
+      @third_article  = Fabricate :article, created_at: Date.today
     end
 
     context "when the first article is selected" do
@@ -113,6 +118,7 @@ describe Article do
   describe "#has_previous?" do
 
     before do
+      @unpublished    = Fabricate :article, created_at: 4.day.ago, published: false
       @first_article  = Fabricate :article, created_at: 3.days.ago
       @second_article = Fabricate :article, created_at: 2.days.ago
     end
@@ -132,6 +138,7 @@ describe Article do
     before do
       @first_article  = Fabricate :article, created_at: 3.days.ago
       @second_article = Fabricate :article, created_at: 2.days.ago
+      @unpublished    = Fabricate :article, created_at: 1.day.ago, published: false
     end
 
     it "can find an upcoming article" do

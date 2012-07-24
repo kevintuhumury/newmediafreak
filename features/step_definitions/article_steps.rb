@@ -3,10 +3,10 @@ Given "there is an article" do
 end
 
 Given "there are articles" do
-  @article_first        = Fabricate :article, id: 1, title: "First article", created_at: 4.days.ago, content: "Content for the first article."
-  @article_second       = Fabricate :article, id: 2, title: "Second article", created_at: 3.days.ago, content: "Content for the second article."
-  @article_next_to_last = Fabricate :article, id: 3, title: "Next to last article", created_at: 2.days.ago, content: "Content for the next-to-last article."
-  @article_latest       = Fabricate :article, id: 4, title: "Latest article", created_at: 1.days.ago, content: "Content for the latest article."
+  article_first         = Fabricate :article, id: 1, title: "First article", created_at: 4.days.ago, content: "Content for the first article."
+  article_second        = Fabricate :article, id: 2, title: "Second article", created_at: 3.days.ago, content: "Content for the second article."
+  article_next_to_last  = Fabricate :article, id: 3, title: "Next to last article", created_at: 2.days.ago, content: "Content for the next-to-last article."
+  @article_latest       = Fabricate :article, id: 4, title: "Latest article", created_at: 1.day.ago, content: "Content for the latest article."
 end
 
 When "I visit the homepage" do
@@ -121,4 +121,39 @@ end
 
 Then "I should see the other articles in the carousel" do
   pending # express the regexp above with the code you wish you had
+end
+
+Given "there is an unpublished article" do
+  @unpublished = Fabricate :article, id: 5, title: "Unpublished article", created_at: Date.today, published: false
+end
+
+When "I visit the unpublished article" do
+  visit article_path(@unpublished)
+end
+
+Then "I should see a 404 error page" do
+  step "I should see a custom 404 error page"
+end
+
+Then "I should not see the unpublished article on the homepage" do
+  within "#content .articles #latest-article" do
+    page.should have_no_selector ".title h2", text: "Nieuw: Unpublished article"
+    page.should have_selector ".title h2", text: "Nieuw: Latest article"
+  end
+end
+
+When "the unpublished article is published" do
+  @unpublished.published = true
+  @unpublished.save!
+end
+
+When "I refresh the page" do
+  visit root_path
+end
+
+Then "I should see the previously unpublished article on the homepage" do
+  within "#content .articles #latest-article" do
+    page.should have_selector ".title h2", text: "Nieuw: Unpublished article"
+    page.should have_no_selector ".title h2", text: "Nieuw: Latest article"
+  end
 end
