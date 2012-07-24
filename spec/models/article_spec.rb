@@ -8,11 +8,11 @@ describe Article do
 
   context "when there is only a single article" do
 
-    subject { Fabricate :article, created_at: 1.day.ago.to_datetime }
+    subject { Fabricate :article, created_at: 1.day.ago }
 
     before do
-      @unpublished_before = Fabricate :article, created_at: 4.days.ago.to_datetime, published: false
-      @unpublished_after  = Fabricate :article, created_at: Date.today.to_datetime, published: false
+      @unpublished_before = Fabricate :article, created_at: 4.days.ago, published: false
+      @unpublished_after  = Fabricate :article, created_at: Date.today, published: false
     end
 
     it "there is no previous article" do
