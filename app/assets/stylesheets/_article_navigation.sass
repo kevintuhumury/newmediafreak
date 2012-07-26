@@ -19,6 +19,7 @@
           +transition-duration(200ms)
           position: absolute
           display: block
+          overflow: hidden
           width: $article-navigation-item-width
           height: 42px
 
@@ -44,6 +45,10 @@
 
         &:hover
           cursor: pointer
+
+          a
+            overflow: visible
+            z-index: 2
 
           .title
             opacity: 1
