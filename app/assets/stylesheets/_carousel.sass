@@ -19,26 +19,6 @@
         height: 104px
         margin: 15px
 
-        .bg-image
-          +border-radius(10px)
-          position: absolute
-          right: 0
-          bottom: 0
-          left: 0
-          padding: 10px
-
-        .title
-          +title-font
-          +border-bottom-right-radius(10px)
-          +border-bottom-left-radius(10px)
-          background: rgba(0, 0, 0, 0.5)
-          font-size: 13px
-          position: absolute
-          right: 0
-          bottom: 0
-          left: 0
-          padding: 10px
-
         a
           display: block
           position: absolute
@@ -46,6 +26,41 @@
           right: 0
           bottom: 0
           left: 0
+
+          .bg-image
+            +border-radius(10px)
+            +background-size(cover)
+            background-position: center
+            background-repeat: no-repeat
+            width: 150px
+            height: 104px
+
+          .title
+            +title-font-embossed
+            +border-bottom-right-radius(10px)
+            +border-bottom-left-radius(10px)
+            +transition-property(height)
+            +transition-duration(500ms)
+            background: rgba(0, 0, 0, 0.5)
+            font-size: 13px
+            white-space: nowrap
+            overflow: hidden
+            text-overflow: ellipsis
+            position: absolute
+            right: 0
+            bottom: 0
+            left: 0
+            height: 20px
+            padding: 10px
+
+        &:hover
+          a
+            .title
+              +transition-property(height)
+              +transition-duration(500ms)
+              text-align: left
+              white-space: normal
+              height: 84px
 
         .empty
           +border-radius(10px)
