@@ -34,17 +34,23 @@
   &:hover
     right: 40px
 
+=inverted
+  +single-text-shadow(rgba(0, 0, 0, 1), -1px, -1px, 0px)
+
+=embossed
+  +single-text-shadow(rgba(0, 0, 0, 1), 1px, 1px, 0px)
+
 =title-font
   font-family: "Nobile"
   font-style: italic
 
 =title-font-inverted
   +title-font
-  +single-text-shadow(rgba(0, 0, 0, 1), -1px, -1px, 0px)
+  +inverted
 
 =title-font-embossed
   +title-font
-  +single-text-shadow(rgba(0, 0, 0, 1), 1px, 1px, 0px)
+  +embossed
 
 =excerpt
   overflow: hidden
