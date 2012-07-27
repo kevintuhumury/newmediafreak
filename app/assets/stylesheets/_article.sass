@@ -25,18 +25,29 @@
         padding: 10px 20px
 
     .content
+      +column-count(2)
+      +column-gap(25px)
       padding: 20px
 
       .firstChild
-        font-size: 14px
+        +embossed
+        font-family: "Karla"
+        font-size: 15px
+        line-height: 20px
 
       h3, h4
-        +title-font-inverted
-        font-size: 16px
-        margin-bottom: 10px
+        +embossed
+        font-family: "Crete Round"
+        font-size: 18px
+        letter-spacing: 1px
+        margin: 20px 0 12px
 
       h4
-        font-size: 14px
+        font-family: "Montserrat"
+        font-size: 12px
+        letter-spacing: 1px
+        text-transform: uppercase
+        margin: 10px 0
 
       ul
         padding-left: 20px
