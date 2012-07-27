@@ -7,6 +7,10 @@ class Article < ActiveRecord::Base
   attr_accessible :title, :content, :image
   validates_presence_of :title, :content, :image
 
+  def self.published_without(current)
+    published.reject { |article| article == current }
+  end
+
   def self.published
     ordered.where(published: true)
   end

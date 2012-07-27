@@ -150,4 +150,63 @@ describe Article do
     end
 
   end
+
+  describe ".published" do
+
+    context "when there are no articles" do
+
+      it "there is nothing to read" do
+        Article.published.should be_empty
+      end
+
+    end
+
+    context "when there are no published articles" do
+
+      before { Fabricate :article, published: false }
+
+      it "there is nothing to read" do
+        Article.published.should be_empty
+      end
+
+    end
+
+    context "when there is a published article" do
+
+      before { @article = Fabricate :article }
+
+      it "there is an article to read" do
+        Article.published.should eq [ @article ]
+      end
+
+    end
+
+  end
+
+  describe ".published_without" do
+
+    context "when there is only one article" do
+
+      before { @article = Fabricate :article }
+
+      it "there is nothing to read when excluding the only article" do
+        Article.published_without(@article).should be_empty
+      end
+
+    end
+
+    context "when there are multiple articles" do
+
+      before do
+        @article = Fabricate :article
+        @latest  = Fabricate :article
+      end
+
+      it "there is an article to read when excluding the latest article" do
+        Article.published_without(@article).should eq [@latest]
+      end
+
+    end
+  end
+
 end
