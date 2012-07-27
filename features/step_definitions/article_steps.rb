@@ -9,6 +9,13 @@ Given "there are articles" do
   @article_latest       = Fabricate :article, id: 4, title: "Latest article", created_at: 1.day.ago, content: "Content for the latest article."
 end
 
+When "there are even more articles" do
+  article_five  = Fabricate :article, id: 5, title: "Fifth article"
+  article_six   = Fabricate :article, id: 6, title: "Sixth article"
+  article_seven = Fabricate :article, id: 7, title: "Seventh article"
+  article_eight = Fabricate :article, id: 8, title: "Eight article"
+end
+
 When "I visit the homepage" do
   visit root_path
 end
@@ -120,7 +127,57 @@ Then "I should only be able to navigate forward" do
 end
 
 Then "I should see the other articles in the carousel" do
-  pending # express the regexp above with the code you wish you had
+  within "#carousel .items ul" do
+    page.should have_selector "li a .bg-image"
+    page.should have_selector "li a .title", text: "First article"
+
+    page.should have_no_selector "li a .title", text: "Second article"
+    page.should have_no_selector "li a .title", text: "Next to last article"
+    page.should have_no_selector "li a .title", text: "Latest article"
+
+    page.should have_selector "li .empty", count: 5
+
+  end
+
+  within "#carousel .navigation ul" do
+    page.should have_selector "li span", count: 1
+  end
+end
+
+Then "I should see multiple articles in the carousel" do
+  within "#carousel .items ul" do
+    page.should have_selector "li a .title", text: "First article"
+    page.should have_selector "li a .title", text: "Second article"
+    page.should have_selector "li a .title", text: "Next to last article"
+
+    page.should have_no_selector "li a .title", text: "Latest article"
+
+    page.should have_selector "li .empty", count: 3
+  end
+
+  within "#carousel .navigation ul" do
+    page.should have_selector "li span", count: 1
+  end
+end
+
+Then "I should see multiple pages in the carousel" do
+  within "#carousel .items ul" do
+    page.should have_selector "li a .title", text: "First article"
+    page.should have_selector "li a .title", text: "Second article"
+    page.should have_selector "li a .title", text: "Next to last article"
+    page.should have_selector "li a .title", text: "Fifth article"
+    page.should have_selector "li a .title", text: "Sixth article"
+    page.should have_selector "li a .title", text: "Seventh article"
+    page.should have_selector "li a .title", text: "Eight article"
+
+    page.should have_no_selector "li a .title", text: "Latest article"
+
+    page.should have_selector "li .empty", count: 5
+  end
+
+  within "#carousel .navigation ul" do
+    page.should have_selector "li span", count: 2
+  end
 end
 
 Given "there is an unpublished article" do

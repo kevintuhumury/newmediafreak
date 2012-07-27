@@ -1,15 +1,14 @@
 #carousel
   .items
     %ul
-      %li
-        .empty
-      %li
-        .empty
-      %li
-        .empty
-      %li
-        .empty
-      %li
-        .empty
-      %li
-        .empty
+      - @articles.each do |article|
+        %li
+          = link_to article_path(article) do
+            .bg-image{style: "background-image: url(#{image_path article.image})"}
+            .title= article.title
+
+      - number_of_filler_elements_for(@articles).times do
+        %li
+          .empty
+
+  = render "shared/carousel_navigation"

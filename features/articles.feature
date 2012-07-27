@@ -27,9 +27,18 @@ Feature: Articles
     When I navigate to the first article
     Then I should only be able to navigate forward
 
-  Scenario: Viewing an article from the carousel
+  Scenario: Viewing an article in the carousel
     Then I should see the latest articles
     And I should see the other articles in the carousel
+
+  Scenario: Viewing multiple articles in the carousel on a single article page
+    When I select the latest article
+    Then I should see multiple articles in the carousel
+
+  Scenario: Viewing more articles in the carousel than a single page can hold
+    When there are even more articles
+    And I select the latest article
+    Then I should see multiple pages in the carousel
 
   @allow-rescue
   Scenario: Don't show an unpublished article

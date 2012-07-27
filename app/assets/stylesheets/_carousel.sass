@@ -2,15 +2,17 @@
   background-color: $dark-brown
   overflow: hidden
   padding-left: 5px
-  height: 180px
+  height: 185px
 
   .items
     overflow: hidden
     width: 1085px
-    margin: 20px 0
+    margin: 20px 0 0
 
     ul
       width: 99999px
+      +transition-property(all)
+      +transition-duration(1s)
 
       li
         position: relative
@@ -72,6 +74,7 @@
           left: 0
 
   .navigation
+    text-align: center
 
     ul
       li
