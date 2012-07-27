@@ -10,18 +10,17 @@
       width: $article-width
 
       li
-        display: inline-block
+        +transition-property(all)
+        +transition-duration(200ms)
+        position: absolute
+        overflow: hidden
+        display: block
         width: $article-navigation-item-width
-        height: 25px
+        height: 42px
 
         a
-          +transition-property(all)
-          +transition-duration(200ms)
-          position: absolute
           display: block
-          overflow: hidden
           width: $article-navigation-item-width
-          height: 42px
 
           .title
             +excerpt
@@ -29,7 +28,7 @@
             display: inline-block
             position: absolute
             opacity: 0
-            width: $article-navigation-item-width
+            width: $article-navigation-item-width - 130
             font-size: 14px
             line-height: 38px
 
@@ -43,10 +42,8 @@
 
         &:hover
           cursor: pointer
-
-          a
-            overflow: visible
-            z-index: 2
+          overflow: visible
+          z-index: 2
 
           .title
             opacity: 1
@@ -55,9 +52,9 @@
             +background(linear-gradient($red, darken($red, 25%)))
 
         &.prev
-          a
-            left: 0
+          left: 0
 
+          a
             .title
               left: -400px
 
@@ -65,16 +62,16 @@
               left: 0
 
         &.prev:hover
-          a
-            left: 20px
+          left: 20px
 
+          a
             .title
               left: 110px
 
         &.upcoming
-          a
-            right: 0
+          right: 0
 
+          a
             .title
               right: -400px
               text-align: right
@@ -83,8 +80,8 @@
               right: 0
 
         &.upcoming:hover
-          a
-            right: 20px
+          right: 20px
 
+          a
             .title
               right: 130px
