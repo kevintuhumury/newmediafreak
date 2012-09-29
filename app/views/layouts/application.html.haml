@@ -5,6 +5,7 @@
     = stylesheet_link_tag "application"
     = javascript_include_tag "application"
     = csrf_meta_tags
+    = yield :head
 
   %body{:class => params[:controller].parameterize}
     #site-container
@@ -20,3 +21,4 @@
 
         = render "shared/carousel"
         = render "shared/footer"
+    = render "shared/fb_connect"

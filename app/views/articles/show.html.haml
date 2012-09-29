@@ -7,3 +7,8 @@
       = raw @article.content
   .navigation
     = render "article_navigation", article: @article
+  .comments
+    .content
+      = render "fb_open_graph_tags", article: @article
+      = render "fb_likes"
+      = render "fb_comments"
