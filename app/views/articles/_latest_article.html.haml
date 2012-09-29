@@ -1,5 +1,5 @@
 - if article
-  .image{style: "background-image: url(#{image_path article.image})"}
+  .image(style="background-image: url(#{image_path article.image})")
 
   .content= truncate strip_tags(article.content), length: 400
 

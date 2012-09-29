@@ -1,6 +1,6 @@
 #single-article
   .article
-    .image{style: "background-image: url(#{image_path @article.image})"}
+    .image(style="background-image: url(#{image_path @article.image})")
     .title
       %h2= @article.title
     .content
