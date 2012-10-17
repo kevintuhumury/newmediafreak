@@ -59,8 +59,8 @@ Then "I should see the full latest article" do
     end
 
     within ".navigation" do
-      page.should have_selector "ul li.prev a span.button", text: "vorig artikel"
-      page.should have_selector "ul li.prev a span.title", text: "Next to last article"
+      page.should have_selector "ul li.preceding a span.button", text: "vorig artikel"
+      page.should have_selector "ul li.preceding a span.title", text: "Next to last article"
 
       page.should have_no_selector "ul li.upcoming a span.button"
       page.should have_no_selector "ul li.upcoming a span.title"
@@ -76,8 +76,8 @@ Then "I should see the full next-to-last article" do
     end
 
     within ".navigation" do
-      page.should have_selector "ul li.prev a span.button", text: "vorig artikel"
-      page.should have_selector "ul li.prev a span.title", text: "Second article"
+      page.should have_selector "ul li.preceding a span.button", text: "vorig artikel"
+      page.should have_selector "ul li.preceding a span.title", text: "Second article"
 
       page.should have_selector "ul li.upcoming a span.button", text: "volgend artikel"
       page.should have_selector "ul li.upcoming a span.title", text: "Latest article"
@@ -87,13 +87,13 @@ end
 
 When "I navigate to the next-to-last article" do
   within "#content #single-article .navigation" do
-    find("ul li.prev a").click
+    find("ul li.preceding a").click
   end
 end
 
 When "I navigate to the first article" do
   within "#content #single-article .navigation" do
-    find("ul li.prev a").click
+    find("ul li.preceding a").click
   end
 
   within "#content #single-article" do
@@ -102,7 +102,7 @@ When "I navigate to the first article" do
     end
 
     within ".navigation" do
-      find("ul li.prev a").click
+      find("ul li.preceding a").click
     end
   end
 end
@@ -115,8 +115,8 @@ Then "I should only be able to navigate forward" do
     end
 
     within ".navigation" do
-      page.should have_no_selector "ul li.prev a span.button"
-      page.should have_no_selector "ul li.prev a span.title"
+      page.should have_no_selector "ul li.preceding a span.button"
+      page.should have_no_selector "ul li.preceding a span.title"
 
       page.should have_selector "ul li.upcoming a span.button", text: "volgend artikel"
       page.should have_selector "ul li.upcoming a span.title", text: "Second article"

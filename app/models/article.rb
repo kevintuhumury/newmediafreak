@@ -15,7 +15,7 @@ class Article < ActiveRecord::Base
     ordered.where(published: true)
   end
 
-  def previous
+  def preceding
     self.class.published.where("created_at < ?", created_at).first
   end
 
@@ -23,8 +23,8 @@ class Article < ActiveRecord::Base
     self.class.published.where("created_at > ?", created_at).last
   end
 
-  def has_previous?
-    !previous.blank?
+  def has_preceding?
+    !preceding.blank?
   end
 
   def has_upcoming?

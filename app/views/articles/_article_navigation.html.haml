@@ -1,9 +1,9 @@
 %ul
-  - if article.has_previous?
-    %li.prev
-      = link_to article_url(article.previous) do
-        %span.button= t(".prev")
-        %span.title= article.previous.title
+  - if article.has_preceding?
+    %li.preceding
+      = link_to article_url(article.preceding) do
+        %span.button= t(".preceding")
+        %span.title= article.preceding.title
 
   - if article.has_upcoming?
     %li.upcoming

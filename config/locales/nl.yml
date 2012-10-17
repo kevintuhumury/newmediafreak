@@ -5,7 +5,7 @@ nl:
     new: "Nieuw: %{title}"
     read_more: Lees verder
     article_navigation:
-      prev: vorig artikel
+      preceding: vorig artikel
       upcoming: volgend artikel
   errors:
     error:

@@ -15,8 +15,8 @@ describe Article do
       @unpublished_after  = Fabricate :article, created_at: Date.today, published: false
     end
 
-    it "there is no previous article" do
-      subject.previous.should be_nil
+    it "there is no preceding article" do
+      subject.preceding.should be_nil
     end
 
     it "there is no next article" do
@@ -37,8 +37,8 @@ describe Article do
 
       subject { @first_article }
 
-      it "there is no previous article" do
-        subject.previous.should be_nil
+      it "there is no preceding article" do
+        subject.preceding.should be_nil
       end
 
       it "there is a next article" do
@@ -50,8 +50,8 @@ describe Article do
     context "when the second article is selected" do
       subject { @second_article }
 
-      it "there is a previous article" do
-        subject.previous.should eq @first_article
+      it "there is a preceding article" do
+        subject.preceding.should eq @first_article
       end
 
       it "there is no next article" do
@@ -75,8 +75,8 @@ describe Article do
 
       subject { @first_article }
 
-      it "there is no previous article" do
-        subject.previous.should be_nil
+      it "there is no preceding article" do
+        subject.preceding.should be_nil
       end
 
       it "there is a next article" do
@@ -89,8 +89,8 @@ describe Article do
 
       subject { @second_article }
 
-      it "there is a previous article" do
-        subject.previous.should eq @first_article
+      it "there is a preceding article" do
+        subject.preceding.should eq @first_article
       end
 
       it "there is a next article" do
@@ -103,8 +103,8 @@ describe Article do
 
       subject { @third_article }
 
-      it "there is a previous article" do
-        subject.previous.should eq @second_article
+      it "there is a preceding article" do
+        subject.preceding.should eq @second_article
       end
 
       it "there is no next article" do
@@ -115,7 +115,7 @@ describe Article do
 
   end
 
-  describe "#previous" do
+  describe "#preceding" do
 
     before do
       @unpublished    = Fabricate :article, created_at: 4.day.ago, published: false
@@ -123,12 +123,12 @@ describe Article do
       @second_article = Fabricate :article, created_at: 2.days.ago
     end
 
-    it "can find a previous article" do
-      @second_article.previous.should eq @first_article
+    it "can find a preceding article" do
+      @second_article.preceding.should eq @first_article
     end
 
-    it "can't find a previous article" do
-      @first_article.previous.should be_nil
+    it "can't find a preceding article" do
+      @first_article.preceding.should be_nil
     end
 
   end
@@ -151,7 +151,7 @@ describe Article do
 
   end
 
-  describe "#has_previous?" do
+  describe "#has_preceding?" do
 
     before do
       @unpublished    = Fabricate :article, created_at: 4.day.ago, published: false
@@ -159,12 +159,12 @@ describe Article do
       @second_article = Fabricate :article, created_at: 2.days.ago
     end
 
-    it "knows when there is a previous article" do
-      @second_article.has_previous?.should be_true
+    it "knows when there is a preceding article" do
+      @second_article.has_preceding?.should be_true
     end
 
-    it "knows when there isn't a previous article" do
-      @first_article.has_previous?.should be_false
+    it "knows when there isn't a preceding article" do
+      @first_article.has_preceding?.should be_false
     end
 
   end
