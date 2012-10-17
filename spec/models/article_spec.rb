@@ -2,9 +2,9 @@ require 'spec_helper'
 
 describe Article do
 
-  it { should deny(:title).to_be_blank }
-  it { should deny(:content).to_be_blank }
-  it { should deny(:image).to_be_blank }
+  it { should validate_presence_of(:title) }
+  it { should validate_presence_of(:content) }
+  it { should validate_presence_of(:image) }
 
   context "when there is only a single article" do
 
