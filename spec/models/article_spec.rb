@@ -1,4 +1,4 @@
-require 'spec_helper'
+require "spec_helper"
 
 describe Article do
 
@@ -115,7 +115,7 @@ describe Article do
 
   end
 
-  describe "#has_previous?" do
+  describe "#previous" do
 
     before do
       @unpublished    = Fabricate :article, created_at: 4.day.ago, published: false
@@ -133,7 +133,7 @@ describe Article do
 
   end
 
-  describe "#has_upcoming?" do
+  describe "#upcoming" do
 
     before do
       @first_article  = Fabricate :article, created_at: 3.days.ago
@@ -149,6 +149,41 @@ describe Article do
       @second_article.upcoming.should be_nil
     end
 
+  end
+
+  describe "#has_previous?" do
+
+    before do
+      @unpublished    = Fabricate :article, created_at: 4.day.ago, published: false
+      @first_article  = Fabricate :article, created_at: 3.days.ago
+      @second_article = Fabricate :article, created_at: 2.days.ago
+    end
+
+    it "knows when there is a previous article" do
+      @second_article.has_previous?.should be_true
+    end
+
+    it "knows when there isn't a previous article" do
+      @first_article.has_previous?.should be_false
+    end
+
+  end
+
+  describe "#has_upcoming?" do
+
+    before do
+      @first_article  = Fabricate :article, created_at: 3.days.ago
+      @second_article = Fabricate :article, created_at: 2.days.ago
+      @unpublished    = Fabricate :article, created_at: 1.day.ago, published: false
+    end
+
+    it "knows when there is an upcoming article" do
+      @first_article.has_upcoming?.should be_true
+    end
+
+    it "knows when there isn't an upcoming article" do
+      @second_article.has_upcoming?.should be_false
+    end
   end
 
   describe ".published" do
