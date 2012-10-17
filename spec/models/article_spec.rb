@@ -19,7 +19,7 @@ describe Article do
       subject.preceding.should be_nil
     end
 
-    it "there is no next article" do
+    it "there is no succeeding article" do
       subject.succeeding.should be_nil
     end
 
@@ -41,7 +41,7 @@ describe Article do
         subject.preceding.should be_nil
       end
 
-      it "there is a next article" do
+      it "there is a succeeding article" do
         subject.succeeding.should eq @second_article
       end
 
@@ -54,7 +54,7 @@ describe Article do
         subject.preceding.should eq @first_article
       end
 
-      it "there is no next article" do
+      it "there is no succeeding article" do
         subject.succeeding.should be_nil
       end
 
@@ -79,7 +79,7 @@ describe Article do
         subject.preceding.should be_nil
       end
 
-      it "there is a next article" do
+      it "there is a succeeding article" do
         subject.succeeding.should eq @second_article
       end
 
@@ -93,7 +93,7 @@ describe Article do
         subject.preceding.should eq @first_article
       end
 
-      it "there is a next article" do
+      it "there is a succeeding article" do
         subject.succeeding.should eq @third_article
       end
 
@@ -107,7 +107,7 @@ describe Article do
         subject.preceding.should eq @second_article
       end
 
-      it "there is no next article" do
+      it "there is no succeeding article" do
         subject.succeeding.should be_nil
       end
 
@@ -141,11 +141,11 @@ describe Article do
       @unpublished    = Fabricate :article, created_at: 1.day.ago, published: false
     end
 
-    it "can find an succeeding article" do
+    it "can find a succeeding article" do
       @first_article.succeeding.should eq @second_article
     end
 
-    it "can't find an succeeding article" do
+    it "can't find a succeeding article" do
       @second_article.succeeding.should be_nil
     end
 
@@ -177,11 +177,11 @@ describe Article do
       @unpublished    = Fabricate :article, created_at: 1.day.ago, published: false
     end
 
-    it "knows when there is an succeeding article" do
+    it "knows when there is a succeeding article" do
       @first_article.has_succeeding?.should be_true
     end
 
-    it "knows when there isn't an succeeding article" do
+    it "knows when there isn't a succeeding article" do
       @second_article.has_succeeding?.should be_false
     end
   end
