@@ -62,8 +62,8 @@ Then "I should see the full latest article" do
       page.should have_selector "ul li.preceding a span.button", text: "vorig artikel"
       page.should have_selector "ul li.preceding a span.title", text: "Next to last article"
 
-      page.should have_no_selector "ul li.upcoming a span.button"
-      page.should have_no_selector "ul li.upcoming a span.title"
+      page.should have_no_selector "ul li.succeeding a span.button"
+      page.should have_no_selector "ul li.succeeding a span.title"
     end
   end
 end
@@ -79,8 +79,8 @@ Then "I should see the full next-to-last article" do
       page.should have_selector "ul li.preceding a span.button", text: "vorig artikel"
       page.should have_selector "ul li.preceding a span.title", text: "Second article"
 
-      page.should have_selector "ul li.upcoming a span.button", text: "volgend artikel"
-      page.should have_selector "ul li.upcoming a span.title", text: "Latest article"
+      page.should have_selector "ul li.succeeding a span.button", text: "volgend artikel"
+      page.should have_selector "ul li.succeeding a span.title", text: "Latest article"
     end
   end
 end
@@ -118,10 +118,10 @@ Then "I should only be able to navigate forward" do
       page.should have_no_selector "ul li.preceding a span.button"
       page.should have_no_selector "ul li.preceding a span.title"
 
-      page.should have_selector "ul li.upcoming a span.button", text: "volgend artikel"
-      page.should have_selector "ul li.upcoming a span.title", text: "Second article"
+      page.should have_selector "ul li.succeeding a span.button", text: "volgend artikel"
+      page.should have_selector "ul li.succeeding a span.title", text: "Second article"
 
-      find("ul li.upcoming a").click
+      find("ul li.succeeding a").click
     end
   end
 end

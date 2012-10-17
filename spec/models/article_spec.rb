@@ -20,7 +20,7 @@ describe Article do
     end
 
     it "there is no next article" do
-      subject.upcoming.should be_nil
+      subject.succeeding.should be_nil
     end
 
   end
@@ -42,7 +42,7 @@ describe Article do
       end
 
       it "there is a next article" do
-        subject.upcoming.should eq @second_article
+        subject.succeeding.should eq @second_article
       end
 
     end
@@ -55,7 +55,7 @@ describe Article do
       end
 
       it "there is no next article" do
-        subject.upcoming.should be_nil
+        subject.succeeding.should be_nil
       end
 
     end
@@ -80,7 +80,7 @@ describe Article do
       end
 
       it "there is a next article" do
-        subject.upcoming.should eq @second_article
+        subject.succeeding.should eq @second_article
       end
 
     end
@@ -94,7 +94,7 @@ describe Article do
       end
 
       it "there is a next article" do
-        subject.upcoming.should eq @third_article
+        subject.succeeding.should eq @third_article
       end
 
     end
@@ -108,7 +108,7 @@ describe Article do
       end
 
       it "there is no next article" do
-        subject.upcoming.should be_nil
+        subject.succeeding.should be_nil
       end
 
     end
@@ -133,7 +133,7 @@ describe Article do
 
   end
 
-  describe "#upcoming" do
+  describe "#succeeding" do
 
     before do
       @first_article  = Fabricate :article, created_at: 3.days.ago
@@ -141,12 +141,12 @@ describe Article do
       @unpublished    = Fabricate :article, created_at: 1.day.ago, published: false
     end
 
-    it "can find an upcoming article" do
-      @first_article.upcoming.should eq @second_article
+    it "can find an succeeding article" do
+      @first_article.succeeding.should eq @second_article
     end
 
-    it "can't find an upcoming article" do
-      @second_article.upcoming.should be_nil
+    it "can't find an succeeding article" do
+      @second_article.succeeding.should be_nil
     end
 
   end
@@ -169,7 +169,7 @@ describe Article do
 
   end
 
-  describe "#has_upcoming?" do
+  describe "#has_succeeding?" do
 
     before do
       @first_article  = Fabricate :article, created_at: 3.days.ago
@@ -177,12 +177,12 @@ describe Article do
       @unpublished    = Fabricate :article, created_at: 1.day.ago, published: false
     end
 
-    it "knows when there is an upcoming article" do
-      @first_article.has_upcoming?.should be_true
+    it "knows when there is an succeeding article" do
+      @first_article.has_succeeding?.should be_true
     end
 
-    it "knows when there isn't an upcoming article" do
-      @second_article.has_upcoming?.should be_false
+    it "knows when there isn't an succeeding article" do
+      @second_article.has_succeeding?.should be_false
     end
   end
 

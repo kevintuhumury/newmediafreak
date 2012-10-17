@@ -6,7 +6,7 @@ nl:
     read_more: Lees verder
     article_navigation:
       preceding: vorig artikel
-      upcoming: volgend artikel
+      succeeding: volgend artikel
   errors:
     error:
       "404":

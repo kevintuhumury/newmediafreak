@@ -19,7 +19,7 @@ class Article < ActiveRecord::Base
     self.class.published.where("created_at < ?", created_at).first
   end
 
-  def upcoming
+  def succeeding
     self.class.published.where("created_at > ?", created_at).last
   end
 
@@ -27,8 +27,8 @@ class Article < ActiveRecord::Base
     !preceding.blank?
   end
 
-  def has_upcoming?
-    !upcoming.blank?
+  def has_succeeding?
+    !succeeding.blank?
   end
 
   private

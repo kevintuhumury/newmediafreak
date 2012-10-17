@@ -5,8 +5,8 @@
         %span.button= t(".preceding")
         %span.title= article.preceding.title
 
-  - if article.has_upcoming?
-    %li.upcoming
-      = link_to article_url(article.upcoming) do
-        %span.title= article.upcoming.title
-        %span.button= t(".upcoming")
+  - if article.has_succeeding?
+    %li.succeeding
+      = link_to article_url(article.succeeding) do
+        %span.title= article.succeeding.title
+        %span.button= t(".succeeding")
