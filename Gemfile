@@ -17,13 +17,13 @@ end
 
 group :development, :test do
   gem "rspec-rails"
-  gem "shoulda-matchers"
-  gem "fabrication"
-  gem "simplecov"
 end
 
 group :test do
-  gem "cucumber-rails"
+  gem "shoulda-matchers"
+  gem "fabrication"
+  gem "cucumber-rails", require: false
   gem "database_cleaner"
   gem "launchy"
+  gem "simplecov"
 end
