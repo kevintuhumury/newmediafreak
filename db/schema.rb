@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120723151708) do
+ActiveRecord::Schema.define(:version => 20121017144528) do
 
   create_table "articles", :force => true do |t|
     t.string   "title"
@@ -25,6 +25,14 @@ ActiveRecord::Schema.define(:version => 20120723151708) do
 
   add_index "articles", ["slug"], :name => "index_articles_on_slug"
 
+  create_table "articles_tags", :force => true do |t|
+    t.integer "article_id"
+    t.integer "tag_id"
+  end
+
+  add_index "articles_tags", ["article_id"], :name => "index_articles_tags_on_article_id"
+  add_index "articles_tags", ["tag_id"], :name => "index_articles_tags_on_tag_id"
+
   create_table "sessions", :force => true do |t|
     t.string   "session_id", :null => false
     t.text     "data"
@@ -34,5 +42,11 @@ ActiveRecord::Schema.define(:version => 20120723151708) do
 
   add_index "sessions", ["session_id"], :name => "index_sessions_on_session_id"
   add_index "sessions", ["updated_at"], :name => "index_sessions_on_updated_at"
+
+  create_table "tags", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
 end

@@ -4,7 +4,7 @@ Feature: Articles
 
   Background:
     Given there are articles
-    When I visit the homepage
+    And I visit the homepage
 
   Scenario: Viewing the latest articles
     Then I should see the latest articles
@@ -54,3 +54,8 @@ Feature: Articles
     When the unpublished article is published
     And I refresh the page
     Then I should see the previously unpublished article on the homepage
+
+  Scenario: Viewing an article with tags
+    Given there are tags applied to the latest article
+    When I select the latest article
+    Then I should see the full latest article with tags

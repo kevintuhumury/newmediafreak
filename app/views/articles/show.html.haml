@@ -3,6 +3,8 @@
     .image(style="background-image: url(#{image_path @article.image})")
     .title
       %h2= @article.title
+    .tags
+      = tags_for @article
     .content
       = raw @article.content
   .navigation

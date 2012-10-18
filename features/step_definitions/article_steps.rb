@@ -214,3 +214,19 @@ Then "I should see the previously unpublished article on the homepage" do
     page.should have_no_selector ".title h2", text: "Nieuw: Latest article"
   end
 end
+
+Given "there are tags applied to the latest article" do
+  @foo = Fabricate :tag, name: "Foo"
+  @bar = Fabricate :tag, name: "Bar"
+  @baz = Fabricate :tag, name: "Baz"
+
+  @article_latest.tags = [ @foo, @bar, @baz ]
+end
+
+Then "I should see the full latest article with tags" do
+  step "I should see the full latest article"
+
+  within "#single-article .article .tags" do
+    should have_content "Foo, Bar en Baz"
+  end
+end

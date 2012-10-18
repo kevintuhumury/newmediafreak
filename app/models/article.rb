@@ -4,6 +4,8 @@ class Article < ActiveRecord::Base
 
   friendly_id :title, use: :slugged
 
+  has_and_belongs_to_many :tags
+
   attr_accessible :title, :content, :image
   validates_presence_of :title, :content, :image
 
