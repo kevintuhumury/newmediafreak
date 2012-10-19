@@ -27,14 +27,14 @@ end
 Then "I should see the latest articles" do
   within "#content .articles" do
     within "#latest-article" do
-      page.should have_selector ".title h2", text: "Latest article"
-      page.should have_selector ".info .read-more", text: "Lees verder"
+      should have_selector ".title h2", text: "Latest article"
+      should have_selector ".info .read-more", text: "Lees verder"
     end
 
     within "#next-to-last-articles" do
-      page.should have_selector ".title h2", text: "Next to last article"
-      page.should have_selector ".title h2", text: "Second article"
-      page.should have_selector ".title .read-more", text: "Lees verder", count: 2
+      should have_selector ".title h2", text: "Next to last article"
+      should have_selector ".title h2", text: "Second article"
+      should have_selector ".title .read-more", text: "Lees verder", count: 2
     end
   end
 end
@@ -54,16 +54,16 @@ end
 Then "I should see the full latest article" do
   within "#content #single-article" do
     within ".article" do
-      page.should have_selector ".title h2", text: "Latest article"
-      page.should have_selector ".content", text: "Content for the latest article."
+      should have_selector ".title h2", text: "Latest article"
+      should have_selector ".content", text: "Content for the latest article."
     end
 
     within ".navigation" do
-      page.should have_selector "ul li.preceding a span.button", text: "vorig artikel"
-      page.should have_selector "ul li.preceding a span.title", text: "Next to last article"
+      should have_selector "ul li.preceding a span.button", text: "vorig artikel"
+      should have_selector "ul li.preceding a span.title", text: "Next to last article"
 
-      page.should have_no_selector "ul li.succeeding a span.button"
-      page.should have_no_selector "ul li.succeeding a span.title"
+      should have_no_selector "ul li.succeeding a span.button"
+      should have_no_selector "ul li.succeeding a span.title"
     end
   end
 end
@@ -71,16 +71,16 @@ end
 Then "I should see the full next-to-last article" do
   within "#content #single-article" do
     within ".article" do
-      page.should have_selector ".title h2", text: "Next to last article"
-      page.should have_selector ".content", text: "Content for the next-to-last article."
+      should have_selector ".title h2", text: "Next to last article"
+      should have_selector ".content", text: "Content for the next-to-last article."
     end
 
     within ".navigation" do
-      page.should have_selector "ul li.preceding a span.button", text: "vorig artikel"
-      page.should have_selector "ul li.preceding a span.title", text: "Second article"
+      should have_selector "ul li.preceding a span.button", text: "vorig artikel"
+      should have_selector "ul li.preceding a span.title", text: "Second article"
 
-      page.should have_selector "ul li.succeeding a span.button", text: "volgend artikel"
-      page.should have_selector "ul li.succeeding a span.title", text: "Latest article"
+      should have_selector "ul li.succeeding a span.button", text: "volgend artikel"
+      should have_selector "ul li.succeeding a span.title", text: "Latest article"
     end
   end
 end
@@ -98,7 +98,7 @@ When "I navigate to the first article" do
 
   within "#content #single-article" do
     within ".article" do
-      page.should have_selector ".title h2", text: "Second article"
+      should have_selector ".title h2", text: "Second article"
     end
 
     within ".navigation" do
@@ -110,16 +110,16 @@ end
 Then "I should only be able to navigate forward" do
   within "#content #single-article" do
     within ".article" do
-      page.should have_selector ".title h2", text: "First article"
-      page.should have_selector ".content", text: "Content for the first article."
+      should have_selector ".title h2", text: "First article"
+      should have_selector ".content", text: "Content for the first article."
     end
 
     within ".navigation" do
-      page.should have_no_selector "ul li.preceding a span.button"
-      page.should have_no_selector "ul li.preceding a span.title"
+      should have_no_selector "ul li.preceding a span.button"
+      should have_no_selector "ul li.preceding a span.title"
 
-      page.should have_selector "ul li.succeeding a span.button", text: "volgend artikel"
-      page.should have_selector "ul li.succeeding a span.title", text: "Second article"
+      should have_selector "ul li.succeeding a span.button", text: "volgend artikel"
+      should have_selector "ul li.succeeding a span.title", text: "Second article"
 
       find("ul li.succeeding a").click
     end
@@ -128,55 +128,55 @@ end
 
 Then "I should see the other articles in the carousel" do
   within "#carousel .items ul" do
-    page.should have_selector "li a .bg-image"
-    page.should have_selector "li a .title", text: "First article"
+    should have_selector "li a .bg-image"
+    should have_selector "li a .title", text: "First article"
 
-    page.should have_no_selector "li a .title", text: "Second article"
-    page.should have_no_selector "li a .title", text: "Next to last article"
-    page.should have_no_selector "li a .title", text: "Latest article"
+    should have_no_selector "li a .title", text: "Second article"
+    should have_no_selector "li a .title", text: "Next to last article"
+    should have_no_selector "li a .title", text: "Latest article"
 
-    page.should have_selector "li .empty", count: 5
+    should have_selector "li .empty", count: 5
 
   end
 
   within "#carousel .navigation ul" do
-    page.should have_selector "li span", count: 1
+    should have_selector "li span", count: 1
   end
 end
 
 Then "I should see multiple articles in the carousel" do
   within "#carousel .items ul" do
-    page.should have_selector "li a .title", text: "First article"
-    page.should have_selector "li a .title", text: "Second article"
-    page.should have_selector "li a .title", text: "Next to last article"
+    should have_selector "li a .title", text: "First article"
+    should have_selector "li a .title", text: "Second article"
+    should have_selector "li a .title", text: "Next to last article"
 
-    page.should have_no_selector "li a .title", text: "Latest article"
+    should have_no_selector "li a .title", text: "Latest article"
 
-    page.should have_selector "li .empty", count: 3
+    should have_selector "li .empty", count: 3
   end
 
   within "#carousel .navigation ul" do
-    page.should have_selector "li span", count: 1
+    should have_selector "li span", count: 1
   end
 end
 
 Then "I should see multiple pages in the carousel" do
   within "#carousel .items ul" do
-    page.should have_selector "li a .title", text: "First article"
-    page.should have_selector "li a .title", text: "Second article"
-    page.should have_selector "li a .title", text: "Next to last article"
-    page.should have_selector "li a .title", text: "Fifth article"
-    page.should have_selector "li a .title", text: "Sixth article"
-    page.should have_selector "li a .title", text: "Seventh article"
-    page.should have_selector "li a .title", text: "Eight article"
+    should have_selector "li a .title", text: "First article"
+    should have_selector "li a .title", text: "Second article"
+    should have_selector "li a .title", text: "Next to last article"
+    should have_selector "li a .title", text: "Fifth article"
+    should have_selector "li a .title", text: "Sixth article"
+    should have_selector "li a .title", text: "Seventh article"
+    should have_selector "li a .title", text: "Eight article"
 
-    page.should have_no_selector "li a .title", text: "Latest article"
+    should have_no_selector "li a .title", text: "Latest article"
 
-    page.should have_selector "li .empty", count: 5
+    should have_selector "li .empty", count: 5
   end
 
   within "#carousel .navigation ul" do
-    page.should have_selector "li span", count: 2
+    should have_selector "li span", count: 2
   end
 end
 
@@ -194,8 +194,8 @@ end
 
 Then "I should not see the unpublished article on the homepage" do
   within "#content .articles #latest-article" do
-    page.should have_no_selector ".title h2", text: "Nieuw: Unpublished article"
-    page.should have_selector ".title h2", text: "Nieuw: Latest article"
+    should have_no_selector ".title h2", text: "Nieuw: Unpublished article"
+    should have_selector ".title h2", text: "Nieuw: Latest article"
   end
 end
 
@@ -210,8 +210,8 @@ end
 
 Then "I should see the previously unpublished article on the homepage" do
   within "#content .articles #latest-article" do
-    page.should have_selector ".title h2", text: "Nieuw: Unpublished article"
-    page.should have_no_selector ".title h2", text: "Nieuw: Latest article"
+    should have_selector ".title h2", text: "Nieuw: Unpublished article"
+    should have_no_selector ".title h2", text: "Nieuw: Latest article"
   end
 end
 
