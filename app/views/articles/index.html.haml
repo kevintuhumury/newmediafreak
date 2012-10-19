@@ -1,3 +1,3 @@
 .articles
   #latest-article= render "latest_article", article: @articles.slice!(0)
-  #next-to-last-articles= render "next_to_last_articles", articles: @articles.slice!(0..1)
+  #next-to-last-articles= render "shared/next_to_last_articles", articles: @articles.slice!(0..1)

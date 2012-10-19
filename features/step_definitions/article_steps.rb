@@ -5,7 +5,7 @@ end
 Given "there are articles" do
   article_first         = Fabricate :article, id: 1, title: "First article", created_at: 4.days.ago, content: "Content for the first article."
   article_second        = Fabricate :article, id: 2, title: "Second article", created_at: 3.days.ago, content: "Content for the second article."
-  article_next_to_last  = Fabricate :article, id: 3, title: "Next to last article", created_at: 2.days.ago, content: "Content for the next-to-last article."
+  @article_next_to_last = Fabricate :article, id: 3, title: "Next to last article", created_at: 2.days.ago, content: "Content for the next-to-last article."
   @article_latest       = Fabricate :article, id: 4, title: "Latest article", created_at: 1.day.ago, content: "Content for the latest article."
 end
 
@@ -213,14 +213,6 @@ Then "I should see the previously unpublished article on the homepage" do
     page.should have_selector ".title h2", text: "Nieuw: Unpublished article"
     page.should have_no_selector ".title h2", text: "Nieuw: Latest article"
   end
-end
-
-Given "there are tags applied to the latest article" do
-  @foo = Fabricate :tag, name: "Foo"
-  @bar = Fabricate :tag, name: "Bar"
-  @baz = Fabricate :tag, name: "Baz"
-
-  @article_latest.tags = [ @foo, @bar, @baz ]
 end
 
 Then "I should see the full latest article with tags" do

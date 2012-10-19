@@ -16,7 +16,7 @@ describe TagHelper do
   context "#tags_for" do
 
     it "formats the tags sorted by frequency" do
-      helper.tags_for(article).should == "bar, baz en foo"
+      helper.tags_for(article).should == "#{link_to "bar", tag_url(bar)}, #{link_to "baz", tag_url(baz)} en #{link_to "foo", tag_url(foo)}"
     end
 
   end

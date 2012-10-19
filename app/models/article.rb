@@ -14,7 +14,11 @@ class Article < ActiveRecord::Base
   end
 
   def self.published
-    ordered.where(published: true)
+    ordered.where published: true
+  end
+
+  def self.tagged_with(tag)
+    published.joins(:tags).where tags: { id: tag.id }
   end
 
   def preceding

@@ -176,6 +176,31 @@ describe Article do
 
   end
 
+  describe ".published_without" do
+
+    context "when there is only one article" do
+
+      let!(:article) { Fabricate :article }
+
+      it "there is nothing to read when excluding the only article" do
+        Article.published_without(article).should be_empty
+      end
+
+    end
+
+    context "when there are multiple articles" do
+
+      let!(:article) { Fabricate :article }
+      let!(:latest)  { Fabricate :article }
+
+      it "there is an article to read when excluding the latest article" do
+        Article.published_without(article).should eq [ latest ]
+      end
+
+    end
+
+  end
+
   describe ".published" do
 
     context "when there are no articles" do
@@ -208,25 +233,26 @@ describe Article do
 
   end
 
-  describe ".published_without" do
+  describe ".tagged_with" do
 
-    context "when there is only one article" do
+    let!(:tag) { Fabricate :tag }
 
-      let!(:article) { Fabricate :article }
+    context "when there is an article tagged with the specified tag" do
 
-      it "there is nothing to read when excluding the only article" do
-        Article.published_without(article).should be_empty
+      let!(:article) { Fabricate :article, tags: [ tag ] }
+
+      it "finds an article" do
+        Article.tagged_with(tag).should_not be_empty
       end
 
     end
 
-    context "when there are multiple articles" do
+    context "when there isn't an article tagged with the specified tag" do
 
       let!(:article) { Fabricate :article }
-      let!(:latest)  { Fabricate :article }
 
-      it "there is an article to read when excluding the latest article" do
-        Article.published_without(article).should eq [ latest ]
+      it "doesn't find an article" do
+        Article.tagged_with(tag).should be_empty
       end
 
     end
