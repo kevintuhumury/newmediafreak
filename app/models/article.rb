@@ -13,12 +13,12 @@ class Article < ActiveRecord::Base
     published.reject { |article| article == current }
   end
 
-  def self.published
-    ordered.where published: true
+  def self.tagged_with(tag)
+    published.select { |article| article.tags.include? tag }
   end
 
-  def self.tagged_with(tag)
-    published.joins(:tags).where tags: { id: tag.id }
+  def self.published
+    ordered.where published: true
   end
 
   def preceding
