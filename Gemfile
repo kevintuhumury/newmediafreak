@@ -5,6 +5,7 @@ gem "mysql2"
 gem "haml"
 gem "friendly_id"
 gem "newrelic_rpm"
+gem "xml-sitemap"
 
 group :assets do
   gem "sass-rails"
