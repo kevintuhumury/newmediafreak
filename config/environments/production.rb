@@ -20,6 +20,9 @@ Newmediafreak::Application.configure do
   # Generate digests for assets URLs
   config.assets.digest = true
 
+  # Also precompile images
+  config.assets.precompile += %w[*.png *.jpg *.jpeg *.gif]
+
   # Defaults to Rails.root.join("public/assets")
   # config.assets.manifest = YOUR_PATH
 
