@@ -15,6 +15,7 @@ require 'shoulda-matchers'
 
 RSpec.configure do |config|
 
+  config.order = :random
   config.mock_with :rspec
   config.use_transactional_fixtures = false
 
