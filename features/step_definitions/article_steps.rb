@@ -47,7 +47,7 @@ end
 
 When "I select the next-to-last article" do
   within "#content .articles #next-to-last-articles" do
-    find(".title .read-more a").click
+    first(".title .read-more a").click
   end
 end
 

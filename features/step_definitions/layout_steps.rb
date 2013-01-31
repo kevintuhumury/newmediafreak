@@ -4,7 +4,10 @@ end
 
 Then "I should see the page title" do
   title = "New Media Freak - Weblog van Kevin Tuhumury"
-  page.should have_selector "head title", text: title
+
+  within "head" do
+    should have_xpath "//title[contains(.,'#{title}')]"
+  end
 
   within "header" do
     should have_selector "h1", text: title
