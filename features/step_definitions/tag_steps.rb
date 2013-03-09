@@ -26,7 +26,7 @@ Then "I should see both the latest and next-to-last articles on the tag page" do
         should have_selector ".title .read-more", text: "Lees verder"
       end
 
-      within ".article:last" do
+      within all(".article").last do
         should have_selector ".title h2", text: "Next to last article"
         should have_selector ".title .read-more", text: "Lees verder"
       end
