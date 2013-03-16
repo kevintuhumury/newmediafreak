@@ -76,7 +76,8 @@ GEM
     fssm (0.2.10)
     gherkin (2.11.6)
       json (>= 1.7.6)
-    haml (3.1.7)
+    haml (4.0.0)
+      tilt
     hike (1.2.1)
     i18n (0.6.1)
     journey (1.0.4)
