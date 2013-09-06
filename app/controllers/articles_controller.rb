@@ -5,7 +5,7 @@ class ArticlesController < ApplicationController
   end
 
   def show
-    @article  = Article.published.find(params[:id])
+    @article  = Article.published.friendly.find(params[:id])
     @articles = Article.published_without(@article)
   end
 
