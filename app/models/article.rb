@@ -39,7 +39,7 @@ class Article < ActiveRecord::Base
   private
 
   def self.ordered
-    order("created_at DESC")
+    order(created_at: :desc)
   end
 
   protected
