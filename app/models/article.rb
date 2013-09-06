@@ -6,7 +6,6 @@ class Article < ActiveRecord::Base
 
   has_and_belongs_to_many :tags
 
-  attr_accessible :title, :content, :image
   validates_presence_of :title, :content, :image
 
   def self.published_without(current)
