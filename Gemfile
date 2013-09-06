@@ -26,6 +26,7 @@ group :test do
   gem "fabrication"
   gem "cucumber-rails", require: false
   gem "database_cleaner"
+  gem "pry-nav"
   gem "launchy"
   gem "simplecov"
 end
