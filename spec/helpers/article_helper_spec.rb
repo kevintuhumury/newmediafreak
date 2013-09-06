@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe ArticleHelper do
 
-  let(:article) { stub }
+  let(:article) { double }
 
   context "when there are 5 articles" do
 
