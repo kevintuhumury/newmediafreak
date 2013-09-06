@@ -17,7 +17,7 @@ describe Sitemap do
   end
 
   it "builds sitemap.xml" do
-    File.read(sitemap).should == File.read("spec/support/sitemap.xml")
+    expect(File.read(sitemap)).to eq File.read("spec/support/sitemap.xml")
   end
 
 end

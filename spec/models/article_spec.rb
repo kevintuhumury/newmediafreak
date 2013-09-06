@@ -16,11 +16,11 @@ describe Article do
     let!(:unpublished_after)  { Fabricate :article, created_at: Date.today, published: false }
 
     it "there is no preceding article" do
-      subject.preceding.should be_nil
+      expect(subject.preceding).to be_nil
     end
 
     it "there is no succeeding article" do
-      subject.succeeding.should be_nil
+      expect(subject.succeeding).to be_nil
     end
 
   end
@@ -36,11 +36,11 @@ describe Article do
       subject { first_article }
 
       it "there is no preceding article" do
-        subject.preceding.should be_nil
+        expect(subject.preceding).to be_nil
       end
 
       it "there is a succeeding article" do
-        subject.succeeding.should eq second_article
+        expect(subject.succeeding).to eq second_article
       end
 
     end
@@ -50,11 +50,11 @@ describe Article do
       subject { second_article }
 
       it "there is a preceding article" do
-        subject.preceding.should eq first_article
+        expect(subject.preceding).to eq first_article
       end
 
       it "there is no succeeding article" do
-        subject.succeeding.should be_nil
+        expect(subject.succeeding).to be_nil
       end
 
     end
@@ -73,11 +73,11 @@ describe Article do
       subject { first_article }
 
       it "there is no preceding article" do
-        subject.preceding.should be_nil
+        expect(subject.preceding).to be_nil
       end
 
       it "there is a succeeding article" do
-        subject.succeeding.should eq second_article
+        expect(subject.succeeding).to eq second_article
       end
 
     end
@@ -87,11 +87,11 @@ describe Article do
       subject { second_article }
 
       it "there is a preceding article" do
-        subject.preceding.should eq first_article
+        expect(subject.preceding).to eq first_article
       end
 
       it "there is a succeeding article" do
-        subject.succeeding.should eq third_article
+        expect(subject.succeeding).to eq third_article
       end
 
     end
@@ -101,11 +101,11 @@ describe Article do
       subject { third_article }
 
       it "there is a preceding article" do
-        subject.preceding.should eq second_article
+        expect(subject.preceding).to eq second_article
       end
 
       it "there is no succeeding article" do
-        subject.succeeding.should be_nil
+        expect(subject.succeeding).to be_nil
       end
 
     end
@@ -121,11 +121,11 @@ describe Article do
     describe "#preceding" do
 
       it "can find a preceding article" do
-        second_article.preceding.should eq first_article
+        expect(second_article.preceding).to eq first_article
       end
 
       it "can't find a preceding article" do
-        first_article.preceding.should be_nil
+        expect(first_article.preceding).to be_nil
       end
 
     end
@@ -133,11 +133,11 @@ describe Article do
     describe "#has_preceding?" do
 
       it "knows when there is a preceding article" do
-        second_article.has_preceding?.should be_true
+        expect(second_article.has_preceding?).to be_true
       end
 
       it "knows when there isn't a preceding article" do
-        first_article.has_preceding?.should be_false
+        expect(first_article.has_preceding?).to be_false
       end
 
     end
@@ -153,11 +153,11 @@ describe Article do
     describe "#succeeding" do
 
       it "can find a succeeding article" do
-        first_article.succeeding.should eq second_article
+        expect(first_article.succeeding).to eq second_article
       end
 
       it "can't find a succeeding article" do
-        second_article.succeeding.should be_nil
+        expect(second_article.succeeding).to be_nil
       end
 
     end
@@ -165,11 +165,11 @@ describe Article do
     describe "#has_succeeding?" do
 
       it "knows when there is a succeeding article" do
-        first_article.has_succeeding?.should be_true
+        expect(first_article.has_succeeding?).to be_true
       end
 
       it "knows when there isn't a succeeding article" do
-        second_article.has_succeeding?.should be_false
+        expect(second_article.has_succeeding?).to be_false
       end
 
     end
@@ -183,7 +183,7 @@ describe Article do
       let!(:article) { Fabricate :article }
 
       it "there is nothing to read when excluding the only article" do
-        Article.published_without(article).should be_empty
+        expect(Article.published_without(article)).to be_empty
       end
 
     end
@@ -194,7 +194,7 @@ describe Article do
       let!(:latest)  { Fabricate :article }
 
       it "there is an article to read when excluding the latest article" do
-        Article.published_without(article).should eq [ latest ]
+        expect(Article.published_without(article)).to eq [ latest ]
       end
 
     end
@@ -206,7 +206,7 @@ describe Article do
     context "when there are no articles" do
 
       it "there is nothing to read" do
-        Article.published.should be_empty
+        expect(Article.published).to be_empty
       end
 
     end
@@ -216,7 +216,7 @@ describe Article do
       let!(:article) { Fabricate :article, published: false }
 
       it "there is nothing to read" do
-        Article.published.should be_empty
+        expect(Article.published).to be_empty
       end
 
     end
@@ -226,7 +226,7 @@ describe Article do
       let!(:article) { Fabricate :article }
 
       it "there is an article to read" do
-        Article.published.should eq [ article ]
+        expect(Article.published).to eq [ article ]
       end
 
     end
@@ -242,7 +242,7 @@ describe Article do
       let!(:article) { Fabricate :article, tags: [ tag ] }
 
       it "finds an article" do
-        Article.tagged_with(tag).should_not be_empty
+        expect(Article.tagged_with(tag)).not_to be_empty
       end
 
     end
@@ -252,7 +252,7 @@ describe Article do
       let!(:article) { Fabricate :article }
 
       it "doesn't find an article" do
-        Article.tagged_with(tag).should be_empty
+        expect(Article.tagged_with(tag)).to be_empty
       end
 
     end

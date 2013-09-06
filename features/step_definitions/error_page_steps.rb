@@ -3,10 +3,10 @@ Then "I should not see a custom 404 error page" do
     should have_selector ".title h2", text: "An article"
   end
 
-  page.should have_no_selector ".error #not_found #message h1", text: "Uhoh..."
-  page.should have_no_selector ".error #not_found #message p"
+  expect(page).to have_no_selector ".error #not_found #message h1", text: "Uhoh..."
+  expect(page).to have_no_selector ".error #not_found #message p"
 
-  page.should have_no_content '"404: File not found" oftewel de pagina waar je naar op zoek bent bestaat niet. Het lijkt erop dat je verdwaald bent in een galaxy far, far away...'
+  expect(page).to have_no_content '"404: File not found" oftewel de pagina waar je naar op zoek bent bestaat niet. Het lijkt erop dat je verdwaald bent in een galaxy far, far away...'
 end
 
 When "I visit a non-existing article" do

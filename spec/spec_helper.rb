@@ -18,6 +18,11 @@ ActiveRecord::Migration.check_pending! if defined?(ActiveRecord::Migration)
 
 RSpec.configure do |config|
 
+  # configure the expect syntax, either :should, :expect or both.
+  config.expect_with :rspec do |config|
+    config.syntax = :expect
+  end
+
   # ## Mock Framework
   #
   # If you prefer to use mocha, flexmock or RR, uncomment the appropriate line:

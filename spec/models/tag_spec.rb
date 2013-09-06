@@ -18,7 +18,7 @@ describe Tag do
     end
 
     it "knows how often it's used" do
-      tag.frequency.should == 2
+      expect(tag.frequency).to eq 2
     end
 
   end
