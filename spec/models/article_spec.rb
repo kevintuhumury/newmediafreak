@@ -183,7 +183,7 @@ describe Article do
       let!(:article) { Fabricate :article }
 
       it "there is nothing to read when excluding the only article" do
-        expect(Article.published_without(article)).to be_empty
+        expect(described_class.published_without(article)).to be_empty
       end
 
     end
@@ -194,7 +194,7 @@ describe Article do
       let!(:latest)  { Fabricate :article }
 
       it "there is an article to read when excluding the latest article" do
-        expect(Article.published_without(article)).to eq [ latest ]
+        expect(described_class.published_without(article)).to eq [ latest ]
       end
 
     end
@@ -206,7 +206,7 @@ describe Article do
     context "when there are no articles" do
 
       it "there is nothing to read" do
-        expect(Article.published).to be_empty
+        expect(described_class.published).to be_empty
       end
 
     end
@@ -216,7 +216,7 @@ describe Article do
       let!(:article) { Fabricate :article, published: false }
 
       it "there is nothing to read" do
-        expect(Article.published).to be_empty
+        expect(described_class.published).to be_empty
       end
 
     end
@@ -226,7 +226,7 @@ describe Article do
       let!(:article) { Fabricate :article }
 
       it "there is an article to read" do
-        expect(Article.published).to eq [ article ]
+        expect(described_class.published).to eq [ article ]
       end
 
     end
@@ -242,7 +242,7 @@ describe Article do
       let!(:article) { Fabricate :article, tags: [ tag ] }
 
       it "finds an article" do
-        expect(Article.tagged_with(tag)).not_to be_empty
+        expect(described_class.tagged_with(tag)).not_to be_empty
       end
 
     end
@@ -252,7 +252,7 @@ describe Article do
       let!(:article) { Fabricate :article }
 
       it "doesn't find an article" do
-        expect(Article.tagged_with(tag)).to be_empty
+        expect(described_class.tagged_with(tag)).to be_empty
       end
 
     end

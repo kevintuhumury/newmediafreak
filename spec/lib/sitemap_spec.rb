@@ -9,7 +9,7 @@ describe Sitemap do
 
   before do
     Time.stub(:now).and_return { Time.new(2012, 4, 26, 2, 0, 0) }
-    Sitemap.build!
+    described_class.build!
   end
 
   after do
