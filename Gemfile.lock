@@ -1,4 +1,14 @@
 GIT
+  remote: git://github.com/cucumber/cucumber-rails.git
+  revision: 46731e2b00ca08786f46c8f813395c9bcf24b01f
+  specs:
+    cucumber-rails (1.4.0)
+      capybara (>= 1.1.2)
+      cucumber (>= 1.3.6)
+      nokogiri (>= 1.5.0)
+      rails (>= 3.0.0)
+
+GIT
   remote: git://github.com/norman/friendly_id.git
   revision: 939b9ca18381a6e50e18fdf68eb04a7a408ae144
   specs:
@@ -63,11 +73,6 @@ GEM
       gherkin (~> 2.12.0)
       multi_json (~> 1.7.5)
       multi_test (>= 0.0.2)
-    cucumber-rails (1.4.0)
-      capybara (>= 1.1.2)
-      cucumber (>= 1.2.0)
-      nokogiri (>= 1.5.0)
-      rails (>= 3.0.0)
     database_cleaner (1.1.1)
     diff-lcs (1.2.4)
     erubis (2.7.0)
@@ -181,7 +186,7 @@ PLATFORMS
 DEPENDENCIES
   coffee-rails (~> 4.0.0)
   compass-rails (~> 2.0.alpha.0)
-  cucumber-rails
+  cucumber-rails!
   database_cleaner
   fabrication
   friendly_id!

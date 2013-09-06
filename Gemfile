@@ -24,7 +24,7 @@ end
 group :test do
   gem "shoulda-matchers"
   gem "fabrication"
-  gem "cucumber-rails", require: false
+  gem "cucumber-rails", github: "cucumber/cucumber-rails", require: false
   gem "database_cleaner"
   gem "pry-nav"
   gem "launchy"
