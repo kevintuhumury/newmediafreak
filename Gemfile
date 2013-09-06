@@ -2,24 +2,22 @@ source "https://rubygems.org"
 
 ruby "2.0.0"
 
-gem "rails", "3.2.14"
+gem "rails", "4.0.0"
 gem "mysql2"
-gem "haml"
-gem "friendly_id"
+
+gem "friendly_id", github: "norman/friendly_id"
 gem "newrelic_rpm"
 gem "xml-sitemap"
 
-group :assets do
-  gem "sass-rails"
-  gem "compass-rails"
-  gem "coffee-rails"
-  gem "jquery-rails"
-  gem "therubyracer"
-  gem "uglifier"
-end
+gem "haml"
+gem "sass-rails", "~> 4.0.0"
+gem "compass-rails", "~> 2.0.alpha.0"
+gem "coffee-rails", "~> 4.0.0"
+gem "jquery-rails"
+gem "therubyracer"
+gem "uglifier"
 
 group :development, :test do
-  gem "rspec"
   gem "rspec-rails"
 end
 

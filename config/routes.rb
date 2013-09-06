@@ -5,10 +5,10 @@ Newmediafreak::Application.routes.draw do
 
   root to: "articles#index"
 
-  match "/404", to: "errors#render_error"
-  match "/500", to: "errors#render_error"
+  get "/404", to: "errors#render_error"
+  get "/500", to: "errors#render_error"
 
   # match legacy permalinks
-  match "/:year/:month/:day/:id", to: "articles#show", constraints: { year: /\d{4}/, month: /\d{2}/, day: /\d{2}/ }
+  get "/:year/:month/:day/:id", to: "articles#show", constraints: { year: /\d{4}/, month: /\d{2}/, day: /\d{2}/ }
 
 end
