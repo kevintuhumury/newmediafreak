@@ -23,6 +23,8 @@ module Newmediafreak
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     config.i18n.default_locale = :nl
 
+    I18n.enforce_available_locales = false
+
     # Handle exceptions which happen in the Rack stack in this application
     config.exceptions_app = self.routes
   end
