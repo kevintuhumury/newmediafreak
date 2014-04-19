@@ -23,6 +23,10 @@ module Newmediafreak
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     config.i18n.default_locale = :nl
 
+    # Let's fallback to english when a Dutch translation is missing.
+    config.i18n.fallbacks = [:en]
+
+    # Skip validation of the available locales
     I18n.enforce_available_locales = false
 
     # Handle exceptions which happen in the Rack stack in this application
