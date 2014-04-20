@@ -5,6 +5,8 @@ ruby "2.0.0"
 gem "rails", "4.0.3"
 gem "mysql2"
 
+gem "kuva"
+
 gem "friendly_id", github: "norman/friendly_id"
 gem "newrelic_rpm"
 gem "xml-sitemap"
