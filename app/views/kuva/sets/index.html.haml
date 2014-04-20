@@ -1,0 +1,9 @@
+%h1= I18n.t("kuva.photosets.title")
+
+%ul.photosets
+  - @photosets.each do |set|
+    %li
+      .title= set.title
+      .number_of_photos= t("kuva.photosets.number_of_photos", count: set.number_of_photos)
+      = link_to set_url(set.id) do
+        = image_tag set.image_url, alt: set.title
