@@ -1,5 +1,7 @@
 Newmediafreak::Application.routes.draw do
 
+  mount Kuva::Engine => "/fotografie"
+
   resources :articles, only: [:index, :show], path: "artikel"
   resources :tags, only: [ :show ], path: "tag"
 
