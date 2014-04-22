@@ -3,7 +3,7 @@
     %ul
       - @articles.each do |article|
         %li
-          = link_to article_path(article) do
+          = link_to main_app.article_path(article) do
             .bg-image{style: "background-image: url(#{image_path article.image})"}
             .title= article.title
 
