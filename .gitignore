@@ -19,5 +19,6 @@
 /config/database.yml
 /config/newrelic.yml
 /config/settings.yml
+/config/secrets.yml
 
 /app/assets/images/articles

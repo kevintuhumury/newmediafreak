@@ -8,24 +8,24 @@ Kuva.setup do |config|
   # The Flickr API requires an API key to connect your application
   # to your Flickr account. You can apply for an API key here:
   # http://www.flickr.com/services/apps/create/apply.
-  config.api_key = SETTINGS[:kuva][:api_key]
+  config.api_key = Rails.application.secrets.kuva_api_key
 
   # Besides the API key, the Flickr API requires a shared secret.
   # Both the API key and shared secret are used to sign requests
   # to the Flickr API and to retrieve an Access Token and Access
   # Secret.
-  config.shared_secret = SETTINGS[:kuva][:shared_secret]
+  config.shared_secret = Rails.application.secrets.kuva_shared_secret
 
   # As specified above, the Access Token can be retrieved by using
   # the kuva:authorize Rake task. Once you've done that, enable the
   # configuration option below and set it's value.
-  config.access_token = SETTINGS[:kuva][:access_token]
+  config.access_token = Rails.application.secrets.kuva_access_token
 
   # As specified above, both the Access Token as well as the Access
   # Secret can be retrieved by using the kuva:authorize Rake task.
   # Once you've done that, enable this configuration option and set
   # it's value.
-  config.access_secret = SETTINGS[:kuva][:access_secret]
+  config.access_secret = Rails.application.secrets.kuva_access_secret
 
   # Kuva caches the Flickr API calls. By default these API calls will
   # expire in 7 days time. If you'd like to change that, adjust it's
