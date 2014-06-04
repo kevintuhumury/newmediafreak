@@ -5,4 +5,4 @@
 .photo
   = image_tag @photo.url, alt: @photo.title
 
-  %p= @photo.description
+  %p= @photo.description.html_safe
