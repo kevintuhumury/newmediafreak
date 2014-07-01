@@ -8,7 +8,7 @@ describe Sitemap do
   let!(:tag)     { Fabricate :tag }
 
   before do
-    Time.stub(:now).and_return { Time.new(2012, 4, 26, 2, 0, 0) }
+    allow(Time).to receive(:now) { Time.new(2012, 4, 26, 2, 0, 0) }
     described_class.build!
   end
 

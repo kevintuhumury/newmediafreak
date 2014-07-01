@@ -2,11 +2,11 @@ require "spec_helper"
 
 describe Article do
 
-  it { should have_and_belong_to_many(:tags) }
+  it { is_expected.to have_and_belong_to_many(:tags) }
 
-  it { should validate_presence_of(:title) }
-  it { should validate_presence_of(:content) }
-  it { should validate_presence_of(:image) }
+  it { is_expected.to validate_presence_of(:title) }
+  it { is_expected.to validate_presence_of(:content) }
+  it { is_expected.to validate_presence_of(:image) }
 
   context "when there is only a single article" do
 
@@ -133,11 +133,11 @@ describe Article do
     describe "#has_preceding?" do
 
       it "knows when there is a preceding article" do
-        expect(second_article.has_preceding?).to be_true
+        expect(second_article.has_preceding?).to be_truthy
       end
 
       it "knows when there isn't a preceding article" do
-        expect(first_article.has_preceding?).to be_false
+        expect(first_article.has_preceding?).to be_falsey
       end
 
     end
@@ -165,11 +165,11 @@ describe Article do
     describe "#has_succeeding?" do
 
       it "knows when there is a succeeding article" do
-        expect(first_article.has_succeeding?).to be_true
+        expect(first_article.has_succeeding?).to be_truthy
       end
 
       it "knows when there isn't a succeeding article" do
-        expect(second_article.has_succeeding?).to be_false
+        expect(second_article.has_succeeding?).to be_falsey
       end
 
     end
