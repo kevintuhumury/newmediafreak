@@ -29,6 +29,9 @@ module Newmediafreak
     # Skip validation of the available locales
     I18n.enforce_available_locales = false
 
+    # Do not swallow errors in after_commit/after_rollback callbacks.
+    config.active_record.raise_in_transactional_callbacks = true
+
     # Handle exceptions which happen in the Rack stack in this application
     config.exceptions_app = self.routes
   end

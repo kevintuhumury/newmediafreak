@@ -1,13 +1,13 @@
 source "https://rubygems.org"
 
-ruby "2.1.5"
+ruby "2.2.1"
 
-gem "rails", "4.1.8"
+gem "rails", "4.2.2"
 gem "mysql2"
 
 gem "kuva"
 
-gem "friendly_id", github: "norman/friendly_id"
+gem "friendly_id", "~> 5.1.0"
 gem "newrelic_rpm"
 gem "xml-sitemap"
 
