@@ -21,11 +21,11 @@ class Article < ActiveRecord::Base
   end
 
   def preceding
-    self.class.published.where("created_at < ?", created_at).first
+    self.class.published.where.not(id: self.id).where("created_at < ?", created_at).first
   end
 
   def succeeding
-    self.class.published.where("created_at > ?", created_at).last
+    self.class.published.where.not(id: self.id).where("created_at > ?", created_at).last
   end
 
   def has_preceding?

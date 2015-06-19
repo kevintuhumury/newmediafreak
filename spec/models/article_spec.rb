@@ -133,11 +133,11 @@ describe Article do
     describe "#has_preceding?" do
 
       it "knows when there is a preceding article" do
-        expect(second_article.has_preceding?).to be_truthy
+        expect(second_article.has_preceding?).to eq true
       end
 
       it "knows when there isn't a preceding article" do
-        expect(first_article.has_preceding?).to be_falsey
+        expect(first_article.has_preceding?).to eq false
       end
 
     end
