@@ -1,5 +1,0 @@
-nl:
-  kuva:
-    photosets:
-      title: Albums
-      number_of_photos: "%{count} foto's"
