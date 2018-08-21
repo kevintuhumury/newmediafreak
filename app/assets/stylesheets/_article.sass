@@ -1,0 +1,64 @@
+#single-article
+  .article
+    +border-radius(10px)
+    background: rgba(0, 0, 0, 0.25)
+    width: $article-width
+    margin: 20px auto
+
+    .image
+      +border-top-right-radius(10px)
+      +border-top-left-radius(10px)
+      +background-size(cover)
+      background-position: center
+      background-repeat: no-repeat
+      height: 260px
+
+    .title
+      +background(linear-gradient(darken($light-gray, 5%), darken($light-gray, 10%)))
+      +background(linear-gradient($red, #811))
+      width: $article-width
+      height: 45px
+
+      h2
+        +title-font-inverted
+        font-size: 16px
+        line-height: 42px
+        padding: 0 20px
+
+    .content
+      +column-count(2)
+      +column-gap(25px)
+      padding: 20px
+
+      .firstChild
+        +embossed
+        font-family: "Karla"
+        font-size: 15px
+        line-height: 20px
+
+      h3, h4
+        +embossed
+        font-family: "Crete Round"
+        font-size: 18px
+        letter-spacing: 1px
+        margin: 20px 0 12px
+
+      h4
+        font-family: "Montserrat"
+        font-size: 12px
+        letter-spacing: 1px
+        text-transform: uppercase
+        margin: 10px 0
+
+      ul
+        padding-left: 20px
+
+        li
+          list-style-type: disc
+
+      a
+        background-color: $red
+        padding: 2px 3px
+
+        &:hover
+          background-color: $light-gray

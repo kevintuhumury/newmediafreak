@@ -1,0 +1,9 @@
+- content_for :head do
+  %meta(property='og:site_name' content="#{t("weblog.title")}")
+  %meta(property='og:title' content="#{article.title}")
+  %meta(property='og:description' content="#{shorten article.content}")
+  %meta(property='og:url' content="#{request.protocol}#{request.host_with_port}#{request.fullpath}")
+  %meta(property='og:image' content="#{request.protocol}#{request.host_with_port}#{image_path article.image}")
+  %meta(property='og:type' content='article')
+  %meta(property='fb:admins' content='1797318714')
+  %meta(property='fb:app_id' content='121569824534039')

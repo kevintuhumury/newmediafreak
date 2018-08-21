@@ -1,0 +1,25 @@
+!!!
+%html
+  %head
+    %title= t('weblog.title')
+    = stylesheet_link_tag 'application', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    = csrf_meta_tags
+    = csp_meta_tag
+    = yield :head
+
+  %body(class="#{params[:controller].parameterize}")
+    #site-container
+      %a(name='top')
+      #site-wrapper
+        = render 'shared/header'
+        = render 'shared/navigation'
+        = render 'shared/features'
+        = render 'shared/descriptive_navigation'
+
+        #content
+          = yield
+
+        = render 'shared/carousel'
+        = render 'shared/footer'
+    = render 'shared/fb_connect'

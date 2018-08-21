@@ -1,0 +1,16 @@
+#single-article
+  .article
+    .image(style="background-image: url(#{image_path @article.image})")
+    .title
+      %h2= @article.title
+    .tags
+      = tags_for @article
+    .content
+      = raw @article.content
+  .navigation
+    = render 'article_navigation', article: @article
+  .comments
+    .content
+      = render 'fb_open_graph_tags', article: @article
+      = render 'fb_likes'
+      = render 'fb_comments'

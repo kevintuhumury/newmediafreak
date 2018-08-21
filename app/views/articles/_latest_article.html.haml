@@ -1,0 +1,10 @@
+- if article
+  .image(style="background-image: url(#{image_path article.image})")
+
+  .content= truncate strip_tags(article.content), length: 400
+
+  .title
+    %h2= t('articles.new', title: article.title)
+
+  .info
+    .read-more= link_to t('articles.read_more'), article_path(article)
