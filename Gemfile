@@ -7,7 +7,7 @@ gem 'rails', '~> 5.2.1'
 gem 'pg'
 gem 'puma'
 
-gem 'kuva', '0.1.1'
+gem 'kuva', '0.1.2'
 
 gem 'friendly_id', '~> 5.1.0'
 gem 'newrelic_rpm'
