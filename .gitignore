@@ -33,11 +33,18 @@
 # Ignore database configuration
 /config/database.yml
 
+# Ignore data migrations
+/db/data_migration
+
 # Ignore article assets
 /app/assets/images/articles
 
 # Ignore newrelic configuration
 /config/newrelic.yml
+
+# Ignore docker files
+/docker
+docker-compose.yml
 
 # Ignore the .env file with environment variables.
 .env

@@ -1,0 +1,14 @@
+.git
+.gitignore
+.DS_Store
+
+.dockerignore
+docker-compose.yml
+
+log/*
+tmp/*
+
+.rspec
+.bundle/*
+coverage/
+spec/
