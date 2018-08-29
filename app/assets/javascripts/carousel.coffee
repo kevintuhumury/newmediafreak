@@ -1,4 +1,4 @@
-$ ->
+$(document).on 'turbolinks:load', ->
   $('#carousel').find('.navigation li').click ->
 
     $(this).parent().find('.active').removeClass 'active'
