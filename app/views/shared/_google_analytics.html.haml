@@ -1,0 +1,25 @@
+- ga_tracking_id = Rails.application.credentials.dig(:google_analytics, :tracking_id)
+
+:javascript
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s);
+    js.id = id;
+    js.src = "//www.googletagmanager.com/gtag/js?id=#{ga_tracking_id}";
+    js.async = 'async';
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'google_analytics'));
+
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', "#{ga_tracking_id}");
+
+  document.addEventListener('turbolinks:load', event => {
+    if (typeof gtag === 'function') {
+      gtag('config', "#{ga_tracking_id}", {
+        'page_location': event.data.url
+      });
+    }
+  });
