@@ -45,6 +45,7 @@
 # Ignore docker files
 /docker
 docker-compose.yml
+docker-compose.override.yml
 
 # Ignore the .env file with environment variables.
 .env
