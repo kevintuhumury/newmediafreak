@@ -10,6 +10,7 @@ gem 'puma'
 gem 'kuva', '0.1.2'
 
 gem 'friendly_id', '~> 5.1.0'
+gem 'sentry-raven'
 gem 'newrelic_rpm'
 gem 'xml-sitemap'
 
